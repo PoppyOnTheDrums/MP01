@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\producto;
+
 
 class homeController extends Controller
 {
@@ -14,7 +16,10 @@ class homeController extends Controller
     }
     //funcion productos que retorna la vista de productos de el apartado de administrador
     public function productos(){
-        return view('admin.productos');
+        
+        $producto = producto::all();
+        
+        return view('admin.productos',compact('producto'));
     }
     //funcion usuarios que retorna la vista de usuarios de el apartado de administrador                                                                                                              
     public function user(){

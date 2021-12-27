@@ -9,7 +9,7 @@
 
 @section('content')
 
-<form autocomplete="off" action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data">
+<form autocomplete="off" action="{{route('admin.productostore')}}" method="POST" enctype="multipart/form-data">
 @csrf
 
         <h1 class="text-center">Producto</h1>

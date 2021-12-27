@@ -36,6 +36,9 @@ class ProductosCrudController extends Controller
      */
     public function store(Request $request)
     {
+        
+        //compila la tabla producot hace una consuta sql inserta la imagen en la carpeta uploads y redirecciona productos
+
         $producto = new producto();
 
         $request->validate([

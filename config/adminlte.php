@@ -252,7 +252,7 @@ return [
             'icon'    => 'fas fa-fw fa-boxes',
             'submenu' => [
                 [
-                    'text' => 'Crear',
+                    'text' => 'Crear | Editar',
                     'route' => 'admin.create',
                 ],
                 [
