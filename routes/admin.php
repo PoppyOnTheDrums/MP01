@@ -21,10 +21,10 @@ Route::get('crear',[ProductosCrudController::class, 'index'])->name('admin.creat
 Route::post('store',[ProductosCrudController::class, 'store'])->name('admin.productostore');
 
 //muestra el registro a editar
-Route::get('{producto}/edit', [App\Http\Controllers\DataController::class, 'edit'])->name('admin.productosedit');
+Route::get('{producto}/edit', [ProductosCrudController::class, 'edit'])->name('admin.productosedit');
 
 //Esta es la ruta por la cual se madara el producto a editar en la base de datos
-Route::put('{producto}',  [App\Http\Controllers\DataController::class, 'update'])->name('admin.productosupdate');
+Route::put('{producto}',  [ProductosCrudController::class, 'update'])->name('admin.productosupdate');
 
 //esta ruta borra el registro
-Route::delete('{producto}',  [App\Http\Controllers\DataController::class, 'delete'])->name('admin.productosdelete');
+Route::delete('{producto}',  [ProductosCrudController::class, 'destroy'])->name('admin.productosdelete');

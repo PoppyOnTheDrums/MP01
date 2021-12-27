@@ -252,7 +252,7 @@ return [
             'icon'    => 'fas fa-fw fa-boxes',
             'submenu' => [
                 [
-                    'text' => 'Crear | Editar',
+                    'text' => 'Crear',
                     'route' => 'admin.create',
                 ],
                 [
@@ -261,7 +261,7 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
+       /*  ['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -276,7 +276,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\producto;
+use Illuminate\Support\Facades\File;
 
 class ProductosCrudController extends Controller
 {
@@ -94,9 +95,9 @@ class ProductosCrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(producto $producto)
     {
-        //
+        return view('admin.edit',compact('producto'));
     }
 
     /**
@@ -108,7 +109,36 @@ class ProductosCrudController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $producto = producto::find($id);
+     
+         $producto->nombre = $request->nombre;
+         $producto->suplidor = $request->suplidor;
+         $producto->descripcion = $request->descripcion;
+         $producto->modelo = $request->modelo;
+         $producto->categoria = $request->categoria;
+         $producto->cantidad = $request->cantidad;
+         $producto->precio = $request->precio;
+         if ($request->hasFile('file')) { 
+ 
+             $destination = 'uploads/productos/'.$producto->foto;
+             if (file::exists($destination)) 
+             {
+                 file::delete($destination);
+             }
+             $file = $request->file('file');
+             $extention = $file->getClientOriginalExtension();
+             $filename = time().'.'.$extention;
+             $file->move('uploads/productos/', $filename);
+             $producto->foto = $filename;
+             
+             
+         }
+ 
+        
+         $producto->update();
+     
+          
+         return redirect()->route('admin.productos');
     }
 
     /**
@@ -117,8 +147,15 @@ class ProductosCrudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,int $id)
     {
-        //
+        $producto = producto::find($id);
+        $destination = 'uploads/productos/'.$producto->foto;
+        if (File::exists($destination)) {
+            # code...
+            File::delete($destination);
+        }
+        $producto->delete();
+        return redirect()->route('admin.productos');
     }
 }
