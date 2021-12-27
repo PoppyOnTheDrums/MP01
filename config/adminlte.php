@@ -228,6 +228,7 @@ return [
 
         // Sidebar items:
 
+    
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -243,12 +244,23 @@ return [
             'route' => 'admin.user',
             'icon' => 'fas fa-fw fa-user',
         ],
+        
+        
+        
         [
-            'text' => 'Productos',
-            'route' => 'admin.productos',
-            'icon' => 'fas fa-fw fa-boxes',
+            'text'    => 'Productos',
+            'icon'    => 'fas fa-fw fa-boxes',
+            'submenu' => [
+                [
+                    'text' => 'Crear',
+                    'route' => 'admin.create',
+                ],
+                [
+                    'text' => 'Visualizar',
+                    'route' => 'admin.productos',
+                ],
+            ],
         ],
-
         ['header' => 'labels'],
         [
             'text'       => 'important',
