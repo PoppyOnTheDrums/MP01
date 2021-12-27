@@ -240,14 +240,15 @@ return [
         ['header' => 'Administracion'],
         [
             'text' => 'Usuarios',
-            'url'  => '',
+            'route' => 'admin.user',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Productos',
-            'url'  => 'admin/settings',
+            'route' => 'admin.productos',
             'icon' => 'fas fa-fw fa-boxes',
         ],
+
         ['header' => 'labels'],
         [
             'text'       => 'important',
