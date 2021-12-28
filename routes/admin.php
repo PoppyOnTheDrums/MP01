@@ -4,6 +4,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\homeController;
 use App\Http\Controllers\Admin\ProductosCrudController;
+use App\Http\Controllers\Admin\UserController;
+use App\Models\User;
 
 //muestra la vista de la pagina principal del administrador
 Route::get('home',[homeController::class, 'index'])->name('admin.home');
@@ -28,3 +30,4 @@ Route::put('{producto}',  [ProductosCrudController::class, 'update'])->name('adm
 
 //esta ruta borra el registro
 Route::delete('{producto}',  [ProductosCrudController::class, 'destroy'])->name('admin.productosdelete');
+

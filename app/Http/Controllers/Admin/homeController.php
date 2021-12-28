@@ -23,6 +23,6 @@ class homeController extends Controller
     }
     //funcion usuarios que retorna la vista de usuarios de el apartado de administrador                                                                                                              
     public function user(){
-       return view('admin.usuario');
+       return view('admin.userindex');
     }
 }
