@@ -2,13 +2,16 @@
 
 
 @section('title', 'Admin')
-
+<head>
+@livewireStyles
+</head>
 @section('content_header')
     <h1>Usuarios</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    @livewire('admin.users-index')
+    @livewireScripts
 @stop
 
 @section('css')
