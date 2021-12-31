@@ -1,7 +1,7 @@
 <div>
     <div class="card">
         <div class="card-header">
-            <input wire:model="buscar" placeholder="Ingrese el nombre del usuario" class="form-control">
+            <input  placeholder="Ingrese el nombre del usuario" class="form-control">
 
         </div>
         <div class="card-body">
@@ -21,7 +21,7 @@
                         <th>{{$user->name}}</th>
                         <th>{{$user->email}}</th>
                         <td width="10px">
-                            <a href="" class="btn btn-primary">Editar</a>
+                            <a href="{{route('admin.useredit', $user)}}" class="btn btn-primary">Editar</a>
                         </td>
                     </tr>
                     @endforeach

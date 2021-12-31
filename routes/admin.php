@@ -16,6 +16,10 @@ Route::get('productos',[homeController::class, 'productos'])->name('admin.produc
 //muestra la pagina donde se visualizan los usuarios 
 Route::get('usuarios',[homeController::class, 'user'])->name('admin.user');
 
+Route::get('{user}/edit', [UserController::class, 'edit'])->name('admin.useredit');
+
+Route::put('{user}', [UserController::class, 'update'])->name('admin.userupdate');
+
 //muestra la pagina para crear un usuario 
 Route::get('crear',[ProductosCrudController::class, 'index'])->name('admin.create');
 
