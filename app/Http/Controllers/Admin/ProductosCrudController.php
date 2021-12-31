@@ -9,37 +9,17 @@ use Illuminate\Support\Facades\File;
 
 class ProductosCrudController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('admin.create');
-    }
+    //Este metodo vizualisa el formulario para crear producto
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.productocrear');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Este metodo crea el registro en la base de datos
+
     public function store(Request $request)
     {
-        
-        //compila la tabla producot hace una consuta sql inserta la imagen en la carpeta uploads y redirecciona productos
-
         $producto = new producto();
 
         $request->validate([
@@ -71,82 +51,60 @@ class ProductosCrudController extends Controller
         }
 
         $producto->save();
-        
-        $producto = producto::all();
-        
-        return redirect()->route('admin.productos',compact('producto'));
+         
+         $producto = producto::all();
+         
+         return redirect()->route('admin.productos',compact('producto'))->with('Info','Se Agrego el Producto correctamente');
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    //Este metodo muestra el formulario para editar
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(producto $producto)
     {
-        return view('admin.edit',compact('producto'));
+        return view('admin.productoeditar', compact('producto'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    //Este metodo actualiza el registro de la base de datos
+
+  
+    public function update(Request $request, int $id)
     {
         $producto = producto::find($id);
-     
-         $producto->nombre = $request->nombre;
-         $producto->suplidor = $request->suplidor;
-         $producto->descripcion = $request->descripcion;
-         $producto->modelo = $request->modelo;
-         $producto->categoria = $request->categoria;
-         $producto->cantidad = $request->cantidad;
-         $producto->precio = $request->precio;
-         if ($request->hasFile('file')) { 
- 
-             $destination = 'uploads/productos/'.$producto->foto;
-             if (file::exists($destination)) 
-             {
-                 file::delete($destination);
-             }
-             $file = $request->file('file');
-             $extention = $file->getClientOriginalExtension();
-             $filename = time().'.'.$extention;
-             $file->move('uploads/productos/', $filename);
-             $producto->foto = $filename;
-             
-             
-         }
- 
-        
-         $producto->update();
-     
-          
-         return redirect()->route('admin.productos');
+    
+        $producto->nombre = $request->nombre;
+        $producto->suplidor = $request->suplidor;
+        $producto->descripcion = $request->descripcion;
+        $producto->modelo = $request->modelo;
+        $producto->categoria = $request->categoria;
+        $producto->cantidad = $request->cantidad;
+        $producto->precio = $request->precio;
+
+        if ($request->hasFile('file')) { 
+
+            $destination = 'uploads/productos/'.$producto->foto;
+            if (file::exists($destination)) 
+            {
+                file::delete($destination);
+            }
+            $file = $request->file('file');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/productos/', $filename);
+            $producto->foto = $filename;
+            
+            
+        }
+
+       
+        $producto->update();
+    
+         
+        return redirect()->route('admin.productos',compact('producto'))->with('Info','Se Actualizo el Producto correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Este metodo borra el registro de la base de datos
+
     public function destroy(Request $request,int $id)
     {
         $producto = producto::find($id);
@@ -156,6 +114,6 @@ class ProductosCrudController extends Controller
             File::delete($destination);
         }
         $producto->delete();
-        return redirect()->route('admin.productos');
+        return redirect()->route('admin.productos',compact('producto'))->with('Info','Se Elimino el Producto correctamente');
     }
 }

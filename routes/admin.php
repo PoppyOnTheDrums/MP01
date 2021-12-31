@@ -16,22 +16,23 @@ Route::get('productos',[homeController::class, 'productos'])->name('admin.produc
 //muestra la pagina donde se visualizan los usuarios 
 Route::get('usuarios',[homeController::class, 'user'])->name('admin.user');
 
+//esta ruta muestra el usuario a editar
 Route::get('{user}/edit', [UserController::class, 'edit'])->name('admin.useredit');
 
+//Por esta ruta se manda el usuario a editar
 Route::put('{user}', [UserController::class, 'update'])->name('admin.userupdate');
 
-//muestra la pagina para crear un usuario 
-Route::get('crear',[ProductosCrudController::class, 'index'])->name('admin.create');
+//por esta ruta se visualiza la ventana de crear productos
+route::get('Crear', [ProductosCrudController::class, 'create'])->name('admin.productocrear');
 
-//Esta es la ruta por la cual se inserta los registros a la base de datos
-Route::post('store',[ProductosCrudController::class, 'store'])->name('admin.productostore');
+//por esta ruta se manda el producto a la bdd
+Route::post('Crear', [ProductosCrudController::class, 'store'])->name('admin.productostore');
 
-//muestra el registro a editar
-Route::get('{producto}/edit', [ProductosCrudController::class, 'edit'])->name('admin.productosedit');
+//Muestra el producto a editar
+route::get('productos/{producto}', [ProductosCrudController::class, 'edit'])->name('admin.productoeditar');
 
-//Esta es la ruta por la cual se madara el producto a editar en la base de datos
-Route::put('{producto}',  [ProductosCrudController::class, 'update'])->name('admin.productosupdate');
+//por esta ruta se actuliza el registro del producto
+route::put('productos/{producto}', [ProductosCrudController::class, 'update'])->name('admin.productoupdate');
 
-//esta ruta borra el registro
-Route::delete('{producto}',  [ProductosCrudController::class, 'destroy'])->name('admin.productosdelete');
-
+//por esta ruta se borran los productos de la base de datos
+route::delete('productos/{producto}', [ProductosCrudController::class, 'destroy'])->name('admin.productodelete');

@@ -19,10 +19,10 @@ class homeController extends Controller
         
         $producto = producto::all();
         
-        return view('admin.productos',compact('producto'));
+        return view('admin.producto',compact('producto'));
     }
     //funcion usuarios que retorna la vista de usuarios de el apartado de administrador                                                                                                              
     public function user(){
-       return view('admin.userindex');
+        return view('admin.userindex');
     }
 }

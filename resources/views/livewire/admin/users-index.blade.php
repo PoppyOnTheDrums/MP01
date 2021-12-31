@@ -1,11 +1,7 @@
 <div>
-    <div class="card">
-        <div class="card-header">
-            <input  placeholder="Ingrese el nombre del usuario" class="form-control">
-
-        </div>
+    <div class="container shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped rounded shadow p-3 mb-5 bg-white rounded">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -21,7 +17,7 @@
                         <th>{{$user->name}}</th>
                         <th>{{$user->email}}</th>
                         <td width="10px">
-                            <a href="{{route('admin.useredit', $user)}}" class="btn btn-primary">Editar</a>
+                            <a href="{{route('admin.useredit', $user)}}" class="btn btn-primary shadow rounded">Editar</a>
                         </td>
                     </tr>
                     @endforeach

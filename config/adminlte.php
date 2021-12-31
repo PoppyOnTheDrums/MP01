@@ -251,10 +251,10 @@ return [
             'text'    => 'Productos',
             'icon'    => 'fas fa-fw fa-boxes',
             'submenu' => [
-                [
+                 [
                     'text' => 'Crear',
-                    'route' => 'admin.create',
-                ],
+                    'route' => 'admin.productocrear',
+                ], 
                 [
                     'text' => 'Visualizar',
                     'route' => 'admin.productos',

@@ -4,16 +4,15 @@
 @section('title', 'Admin')
 
 @section('content_header')
-    <h1>Crear Producto</h1>
+    <h1>Productos</h1>
 @stop
 
 @section('content')
-
 <form autocomplete="off" action="{{route('admin.productostore')}}" method="POST" enctype="multipart/form-data">
 @csrf
 
         <h1 class="text-center">Producto</h1>
-        <div class="container border border-success rounded py-4">
+        <div class="container border  py-4 shadow p-3 mb-5 bg-white rounded">
             <div class="form-group row mx-auto px-4 py-2">
                 <label class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-10">
@@ -100,7 +99,7 @@
 @stop
 
 @section('css')
-   <!--  <link rel="stylesheet" href="/css/admin_custom.css"> -->
+    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
