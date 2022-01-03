@@ -228,7 +228,7 @@ return [
 
         // Sidebar items:
 
-    
+
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -244,30 +244,27 @@ return [
             'route' => 'tienda.home',
             'icon' => 'fas fa-home'
         ],
-        ['header' => 'Administracion'],
+        ['header' => 'Administracion | Usuarios'],
         [
             'text' => 'Usuarios',
             'route' => 'admin.user',
             'icon' => 'fas fa-fw fa-user',
         ],
-        
-        
-        
+
+        ['header' => 'Administracion | Productos'],
         [
-            'text'    => 'Productos',
-            'icon'    => 'fas fa-fw fa-boxes',
-            'submenu' => [
-                 [
-                    'text' => 'Crear',
-                    'route' => 'admin.productocrear',
-                ], 
-                [
-                    'text' => 'Visualizar',
-                    'route' => 'admin.productos',
-                ],
-            ],
+            'text' => 'Lista de Productos',
+            'route' => 'admin.productos',
+            'icon'    => 'fas fa-clipboard-list',
         ],
-       /*  ['header' => 'labels'],
+        [
+            'text' => 'Crear',
+            'route' => 'admin.productocrear',
+            'icon'    => 'fas fa-fw fa-boxes',
+        ],
+
+
+        /*  ['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',

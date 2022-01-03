@@ -84,12 +84,8 @@
                                 <x-slot name="content">
                                     <!-- Account Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Account') }}
+                                        {{ __('Perfil') }}
                                     </div>
-
-                                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                        {{ __('Profile') }}
-                                    </x-jet-dropdown-link>
                                     @can('admin.home')
                                     <x-jet-dropdown-link href="{{ route('admin.home') }}">
                                         {{ __('Dashboard') }}
