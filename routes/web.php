@@ -19,6 +19,10 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('tienda.home');
+})->name('inicio');
+
+Route::get('/home', function () {
+    return view('tienda.home');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

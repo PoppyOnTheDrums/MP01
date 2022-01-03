@@ -31,7 +31,7 @@
                     <div class="flex">
                         <!-- Logo -->
                         <div class="shrink-0 flex items-center">
-                            <a href="{{ route('dashboard') }}">
+                            <a href="{{ route('inicio') }}">
                                 <x-jet-application-mark class="block h-9 w-auto" />
                             </a>
                         </div>
@@ -80,7 +80,6 @@
                                     </div>
                                     @endif
                                 </x-slot>
-
                                 <x-slot name="content">
                                     <!-- Account Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
@@ -91,11 +90,6 @@
                                         {{ __('Dashboard') }}
                                     </x-jet-dropdown-link>
                                     @endcan
-                                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                    <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                        {{ __('API Tokens') }}
-                                    </x-jet-dropdown-link>
-                                    @endif
 
                                     <div class="border-t border-gray-100"></div>
 
@@ -114,6 +108,7 @@
                     </div>
 
                     <!-- Hamburger -->
+                    
                     <div class="-mr-2 flex items-center sm:hidden">
                         <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -147,15 +142,10 @@
 
                     <div class="mt-3 space-y-1">
                         <!-- Account Management -->
+                        @if(Auth::check())
                         <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }}
                         </x-jet-responsive-nav-link>
-
-                        @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                        <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                            {{ __('API Tokens') }}
-                        </x-jet-responsive-nav-link>
-                        @endif
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -166,7 +156,17 @@
                                 {{ __('Log Out') }}
                             </x-jet-responsive-nav-link>
                         </form>
-
+                        @else
+                        <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                            {{ __('Perfil') }}
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                            {{ __('Perfil') }}
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                            {{ __('Perfil') }}
+                        </x-jet-responsive-nav-link>
+                        @endif
 
                     </div>
                 </div>
