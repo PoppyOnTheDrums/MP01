@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\homeController;
 use App\Http\Controllers\Admin\ProductosCrudController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SuplidorController;
+use App\Http\Controllers\Admin\CategoriaController;
 use App\Models\User;
 
 //muestra la vista de la pagina principal del administrador
@@ -50,6 +51,26 @@ Route::post('suplidor/Create',[SuplidorController::class, 'store'])->name('admin
 //por esta ruta se muestra el registro a editar
 Route::get('suplidor/{suplidor}',[SuplidorController::class, 'edit'])->name('admin.suplidoredit');
 
+//por esta ruta se actualiza el registro
 Route::put('suplidor/{suplidor}',[SuplidorController::class, 'update'])->name('admin.suplidorupdate');
 
+//por esta ruta se borra el registro
 route::delete('suplidor/{suplidor}', [SuplidorController::class, 'destroy'])->name('admin.suplidordelete');
+
+//por esta ruta se accede a los registro de categoria
+Route::get('categoria',[CategoriaController::class, 'index'])->name('admin.categoria');
+
+//por esta ruta se muestra el formulario para crear categorias
+Route::get('categoria/Create',[CategoriaController::class, 'create'])->name('admin.categoriacreate');
+
+//por esta ruta se inserta el registro en la bdd
+Route::post('categoria/Create',[CategoriaController::class, 'store'])->name('admin.categoriastore');
+
+//por esta ruta se muestra la categoria a editar
+Route::get('categoria/{categorias}',[CategoriaController::class, 'edit'])->name('admin.categoriasedit');
+
+//por esta ruta se actualiza la categoria
+Route::put('categoria/{categorias}',[CategoriaController::class, 'update'])->name('admin.categoriasupdate');
+
+//por esta ruta se elimina el registro
+Route::delete('categoria/{categorias}',[CategoriaController::class, 'destroy'])->name('admin.categoriasdelete');

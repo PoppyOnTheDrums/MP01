@@ -273,6 +273,18 @@ return [
             'route' => 'admin.suplidorcreate',
             'icon'    => 'fas fa-parachute-box',
         ],
+        ['header' => 'Administracion | Categorias'],
+        [
+            'text' => 'Lista de Categorias',
+            'route' => 'admin.categoria',
+            'icon'    => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'Añadir Categoria',
+            'route' => 'admin.categoriacreate',
+            'icon'    => 'fas fa-archive',
+        ],
+    
     
        
 
