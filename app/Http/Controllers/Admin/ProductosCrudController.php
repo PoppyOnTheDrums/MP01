@@ -32,7 +32,7 @@ class ProductosCrudController extends Controller
             'precio' => 'required',
             'file' => 'required'
         ]);
-
+        
         $producto->nombre = $request->nombre;
         $producto->suplidor = $request->suplidor;
         $producto->descripcion = $request->descripcion;
