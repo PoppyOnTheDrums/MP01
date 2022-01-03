@@ -258,10 +258,23 @@ return [
             'icon'    => 'fas fa-clipboard-list',
         ],
         [
-            'text' => 'Crear',
+            'text' => 'Añadir Producto',
             'route' => 'admin.productocrear',
             'icon'    => 'fas fa-fw fa-boxes',
         ],
+        ['header' => 'Administracion | Suplidor'],
+        [
+            'text' => 'Lista de Suplidores',
+            'route' => 'admin.suplidor',
+            'icon'    => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'Añadir Suplidor',
+            'route' => 'admin.suplidorcreate',
+            'icon'    => 'fas fa-parachute-box',
+        ],
+    
+       
 
 
         /*  ['header' => 'labels'],

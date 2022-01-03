@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\homeController;
 use App\Http\Controllers\Admin\ProductosCrudController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\SuplidorController;
 use App\Models\User;
 
 //muestra la vista de la pagina principal del administrador
@@ -36,3 +37,19 @@ route::put('productos/{producto}', [ProductosCrudController::class, 'update'])->
 
 //por esta ruta se borran los productos de la base de datos
 route::delete('productos/{producto}', [ProductosCrudController::class, 'destroy'])->middleware('can:admin.productoscrud')->name('admin.productodelete');
+
+//por esta ruta se vizualisan los suplidores
+Route::get('suplidor',[SuplidorController::class, 'index'])->name('admin.suplidor');
+
+//por esta ruta se muerstra el formulario para crear suplidores
+Route::get('suplidor/Create',[SuplidorController::class, 'create'])->name('admin.suplidorcreate');
+
+//por esta ruta se inserta el registro en la bdd
+Route::post('suplidor/Create',[SuplidorController::class, 'store'])->name('admin.suplidorstore');
+
+//por esta ruta se muestra el registro a editar
+Route::get('suplidor/{suplidor}',[SuplidorController::class, 'edit'])->name('admin.suplidoredit');
+
+Route::put('suplidor/{suplidor}',[SuplidorController::class, 'update'])->name('admin.suplidorupdate');
+
+route::delete('suplidor/{suplidor}', [SuplidorController::class, 'destroy'])->name('admin.suplidordelete');
