@@ -236,7 +236,13 @@ return [
         ],
         [
             'text' => 'Home',
-            'route' => 'admin.home'
+            'route' => 'admin.home',
+            'icon' => 'fas fa-server'
+        ],
+        [
+            'text' => 'Pagina Principal',
+            'route' => 'tienda.home',
+            'icon' => 'fas fa-home'
         ],
         ['header' => 'Administracion'],
         [

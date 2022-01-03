@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\homeController;
+use App\Http\Controllers\Admin\ProductosCrudController;
+use App\Http\Controllers\Admin\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +24,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+/* Route::get('/home',[homeController::class, 'show'])->name('tienda.home'); */
+
+Route::prefix('Tecko')->group(function () {
+    Route::get('/home',[homeController::class, 'show'])->name('tienda.home');
+});

@@ -25,4 +25,9 @@ class homeController extends Controller
     public function user(){
         return view('admin.userindex');
     }
+
+    public function show(){
+        return view('tienda.home'); 
+    
+    }
 }
