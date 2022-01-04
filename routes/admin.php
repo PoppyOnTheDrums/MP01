@@ -40,37 +40,37 @@ route::put('productos/{producto}', [ProductosCrudController::class, 'update'])->
 route::delete('productos/{producto}', [ProductosCrudController::class, 'destroy'])->middleware('can:admin.productoscrud')->name('admin.productodelete');
 
 //por esta ruta se vizualisan los suplidores
-Route::get('suplidor',[SuplidorController::class, 'index'])->name('admin.suplidor');
+Route::get('suplidor',[SuplidorController::class, 'index'])->middleware('can:admin.suplidorcrud')->name('admin.suplidor');
 
 //por esta ruta se muerstra el formulario para crear suplidores
-Route::get('suplidor/Create',[SuplidorController::class, 'create'])->name('admin.suplidorcreate');
+Route::get('suplidor/Create',[SuplidorController::class, 'create'])->middleware('can:admin.suplidorcrud')->name('admin.suplidorcreate');
 
 //por esta ruta se inserta el registro en la bdd
-Route::post('suplidor/Create',[SuplidorController::class, 'store'])->name('admin.suplidorstore');
+Route::post('suplidor/Create',[SuplidorController::class, 'store'])->middleware('can:admin.suplidorcrud')->name('admin.suplidorstore');
 
 //por esta ruta se muestra el registro a editar
-Route::get('suplidor/{suplidor}',[SuplidorController::class, 'edit'])->name('admin.suplidoredit');
+Route::get('suplidor/{suplidor}',[SuplidorController::class, 'edit'])->middleware('can:admin.suplidorcrud')->name('admin.suplidoredit');
 
 //por esta ruta se actualiza el registro
-Route::put('suplidor/{suplidor}',[SuplidorController::class, 'update'])->name('admin.suplidorupdate');
+Route::put('suplidor/{suplidor}',[SuplidorController::class, 'update'])->middleware('can:admin.suplidorcrud')->name('admin.suplidorupdate');
 
 //por esta ruta se borra el registro
-route::delete('suplidor/{suplidor}', [SuplidorController::class, 'destroy'])->name('admin.suplidordelete');
+route::delete('suplidor/{suplidor}', [SuplidorController::class, 'destroy'])->middleware('can:admin.suplidorcrud')->name('admin.suplidordelete');
 
 //por esta ruta se accede a los registro de categoria
-Route::get('categoria',[CategoriaController::class, 'index'])->name('admin.categoria');
+Route::get('categoria',[CategoriaController::class, 'index'])->middleware('can:admin.categoriacrud')->name('admin.categoria');
 
 //por esta ruta se muestra el formulario para crear categorias
-Route::get('categoria/Create',[CategoriaController::class, 'create'])->name('admin.categoriacreate');
+Route::get('categoria/Create',[CategoriaController::class, 'create'])->middleware('can:admin.categoriacrud')->name('admin.categoriacreate');
 
 //por esta ruta se inserta el registro en la bdd
-Route::post('categoria/Create',[CategoriaController::class, 'store'])->name('admin.categoriastore');
+Route::post('categoria/Create',[CategoriaController::class, 'store'])->middleware('can:admin.categoriacrud')->name('admin.categoriastore');
 
 //por esta ruta se muestra la categoria a editar
-Route::get('categoria/{categorias}',[CategoriaController::class, 'edit'])->name('admin.categoriasedit');
+Route::get('categoria/{categorias}',[CategoriaController::class, 'edit'])->middleware('can:admin.categoriacrud')->name('admin.categoriasedit');
 
 //por esta ruta se actualiza la categoria
-Route::put('categoria/{categorias}',[CategoriaController::class, 'update'])->name('admin.categoriasupdate');
+Route::put('categoria/{categorias}',[CategoriaController::class, 'update'])->middleware('can:admin.categoriacrud')->name('admin.categoriasupdate');
 
 //por esta ruta se elimina el registro
-Route::delete('categoria/{categorias}',[CategoriaController::class, 'destroy'])->name('admin.categoriasdelete');
+Route::delete('categoria/{categorias}',[CategoriaController::class, 'destroy'])->middleware('can:admin.categoriacrud')->name('admin.categoriasdelete');

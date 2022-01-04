@@ -23,5 +23,7 @@ class RoleSeeder extends Seeder
        Permission::create(['name' => 'admin.user'])->assignRole($role1);
        Permission::create(['name' => 'admin.productos'])->assignRole($role1);
        Permission::create(['name' => 'admin.usercrud'])->assignRole($role1);
+       Permission::create(['name' => 'admin.categoriacrud'])->assignRole($role1);
+       Permission::create(['name' => 'admin.suplidorcrud'])->assignRole($role1);
     }
 }
