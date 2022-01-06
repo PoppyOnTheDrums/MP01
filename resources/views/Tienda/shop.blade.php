@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/tienda.css') }}">
 
     @livewireStyles
 
@@ -204,7 +205,10 @@
 
         <!-- Page Content -->
         <main>
-
+            <div class="title-container">
+                <h1>Productos</h1>
+            </div>
+           
         </main>
     </div>
 
