@@ -29,6 +29,18 @@
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
+            <div class="mt-4">
+                 <x-jet-label for="Empresa" value="{{ __('¿Que tipo de usuario eres?') }}" />
+                 <div class="flex py-2">
+                 <x-jet-label for="Empresa" value="{{ __('Empresa') }}" />
+                 <x-jet-input id="type"  type="radio" name="type" class="ml-2" value="empresa" />
+                 </div>
+                 <div class="flex">
+                 <x-jet-label for="Empresa" value="{{ __('Egresado') }}" />
+                 <x-jet-input id="type"  type="radio" name="type" class="ml-2" value="egresado"/>
+                 </div>
+            </div>
+
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-jet-label for="terms">
