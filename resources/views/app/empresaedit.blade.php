@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
     @livewireStyles
 
     <!-- Scripts -->
@@ -96,6 +97,9 @@
                                     </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('app.empresaform') }}">
                                         {{ __('IDI Empresa') }}
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('app.vacantes') }}">
+                                        {{ __('Vacante') }}
                                     </x-jet-dropdown-link>
                                     <x-jet-responsive-nav-link href="{{ route('app.home') }}" :active="request()->routeIs('profile.show')">
                                         {{ __('Inicio') }}

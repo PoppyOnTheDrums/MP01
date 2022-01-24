@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Models\User;
 use App\Http\Controllers\EgresadoFormController;
 use App\Http\Controllers\EmpresaFormController;
+use App\Http\Controllers\VacanteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,17 @@ Route::post('store',[EmpresaFormController::class, 'store'])->name('app.empresas
 
 //por esta ruta se actualiza el registro
 Route::put('update', [EmpresaFormController::class, 'update'])->name('app.empresaupdate');
+
+//por esta ruta se mestran las vacantes
+Route::get('Vacante',[VacanteController::class, 'index'])->name('app.vacantes');
+
+//por esta ruta se lleva a la ventana de crear
+Route::get('Vacantes/create', [VacanteController::class, 'create'])->name('app.vacantescreate');
+
+//por esta ruta se manda la informacion a la base de datos
+Route::post('Vacantes/store',[VacanteController::class, 'store'])->name('app.vacantesstore');
+
+//por esta ruta se manda a la vancante a editar
+Route::get('Vacantes/{vacante}',[VacanteController::class, 'edit'])->name('app.vacantesedit');
+
+Route::put('Vacantes/{vacante}',[VacanteController::class, 'update'])->name('app.vacantesupdate');
