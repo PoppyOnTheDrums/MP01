@@ -41,6 +41,12 @@ Route::prefix('Tecko')->group(function () {
 //Por esta ruta se manda al formulario en el cual se rellena la informacion par la incercion
 Route::get('Egresado/Form',[EgresadoFormController::class, 'index'])->name('app.egresadoform');
 
+//por esta ruta se manda la informacion del formulario a la base de datos
+Route::post('Egresado/store',[EgresadoFormController::class, 'store'])->name('app.egresadostore');
+
+//por esta ruta se actualiza el registro 
+Route::put('Egresado/update',[EgresadoFormController::class, 'update'])->name('app.egresadoupdate');
+
 //Por esta ruta se muestra el formulario
 Route::get('Empresa/Form',[EmpresaFormController::class, 'index'])->name('app.empresaform');
 

@@ -197,50 +197,51 @@
 
         <!-- Page Content -->
         <main>
-            En esta pagina el egresado llenara su informacion
+            se edita el egresado
         <div>
-                <form autocomplete="off" action="{{route('app.egresadostore')}}" method="POST">
+                <form autocomplete="off" action="{{route('app.egresadoupdate')}}" method="POST">
                     @csrf
+                    @method('PUT')
 
                     <div>
                         <label for="nombre">Año de Graduación</label>
-                        <input type="number" name="graduacion">
+                        <input type="number" name="graduacion" value="{{$egresado->graduacion}}">
                     </div>
                     <div>
                         <label for="nombre">Institución educativa a la que pertenece</label>
-                        <input type="text" name="institucion_educativa">
+                        <input type="text" name="institucion_educativa" value="{{$egresado->institucion_educativa}}">
                     </div>
                     <div>
                         <label for="nombre">Curso</label>
-                        <input type="text" name="curso">
+                        <input type="text" name="curso" value="{{$egresado->curso}}">
                     </div>
                     <div>
                         <label for="nombre">Matrícula</label>
-                        <input type="number" name="matricula">
+                        <input type="number" name="matricula" value="{{$egresado->matricula}}">
                     </div>
                     <div>
                         <label for="nombre">Cédula de Identidad</label>
-                        <input type="number" name="cedula">
+                        <input type="number" name="cedula" value="{{$egresado->cedula}}">
                     </div>
                     <div>
                         <label for="nombre">Carrera Técnica</label>
-                        <input type="text" name="carrera_tecnica">
+                        <input type="text" name="carrera_tecnica" value="{{$egresado->carrera_tecnica}}">
                     </div>
                     <div>
                         <label for="nombre">Técnico Básico</label>
-                        <input type="text" name="tecnico_basico">
+                        <input type="text" name="tecnico_basico" value="{{$egresado->tecnico_basico}}">
                     </div>
                     <div>
                         <label for="nombre">Nombres</label>
-                        <input type="text" name="nombre">
+                        <input type="text" name="nombre" value="{{$egresado->nombre}}">
                     </div>
                     <div>
                         <label for="nombre">Apellidos</label>
-                        <input type="text" name="apellido">
+                        <input type="text" name="apellido" value="{{$egresado->apellido}}">
                     </div>
                     <div>
                         <label for="nombre">Fecha de Nacimiento</label>
-                        <input type="date" name="fecha_nac">
+                        <input type="date" name="fecha_nac" value="{{$egresado->fecha_nac}}">
                     </div>
                     <div>
                         <label for="nombre">Sexo</label>
@@ -255,35 +256,35 @@
                     </div>
                     <div>
                         <label for="nombre">Dirección</label>
-                        <input type="text" name="direccion">
+                        <input type="text" name="direccion" value="{{$egresado->direccion}}">
                     </div>
                     <div>
                         <label for="nombre">Sector</label>
-                        <input type="text" name="sector">
+                        <input type="text" name="sector" value="{{$egresado->sector}}">
                     </div>
                     <div>
                         <label for="nombre">Sección</label>
-                        <input type="text" name="seccion">
+                        <input type="text" name="seccion" value="{{$egresado->seccion}}">
                     </div>
                     <div>
                         <label for="nombre">Municipio</label>
-                        <input type="text" name="municipio">
+                        <input type="text" name="municipio" value="{{$egresado->municipio}}">
                     </div>
                     <div>
                         <label for="nombre">Provincia</label>
-                        <input type="text" name="provincia">
+                        <input type="text" name="provincia" value="{{$egresado->provincia}}">
                     </div>
                     <div>
                         <label for="nombre">País de Nacionalidad</label>
-                        <input type="text" name="pais_nacionalidad">
+                        <input type="text" name="pais_nacionalidad" value="{{$egresado->pais_nacionalidad}}">
                     </div>
                     <div>
                         <label for="nombre">Teléfono Residencial</label>
-                        <input type="number" name="telefono_recidencial">
+                        <input type="number" name="telefono_recidencial" value="{{$egresado->telefono_recidencial}}">
                     </div>
                     <div>
                         <label for="nombre">Teléfono Móvil</label>
-                        <input type="number" name="telefono_movil">
+                        <input type="number" name="telefono_movil" value="{{$egresado->telefono_movil}}">
                     </div>
                     <div>
                         <label for="nombre">Posee licencia de conducir?</label>
@@ -295,9 +296,9 @@
                     </div>
                     <div>
                         <label for="nombre">Email</label>
-                        <input type="email" name="email">
+                        <input type="email" name="email" value="{{$egresado->email}}">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Agregar</button>
+                    <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Editar</button>
 
                 </form>
             </div>
