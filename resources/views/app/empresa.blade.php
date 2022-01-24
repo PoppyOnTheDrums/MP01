@@ -13,7 +13,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
     @livewireStyles
 
     <!-- Scripts -->
@@ -60,7 +59,7 @@
                                             </button>
                                         </span>
                                     </div>
-                               
+
                                     @else
                                     <div class="flex">
                                         <!-- Navigation Links -->
@@ -197,7 +196,102 @@
 
         <!-- Page Content -->
         <main>
-         esta es la pagina principal
+            <div>
+                <form autocomplete="off" action="{{route('app.empresastore')}}" method="POST">
+                    @csrf
+
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre">
+                    </div>
+                    <div>
+                        <label for="nombre">RNC</label>
+                        <input type="number" name="rnc">
+                    </div>
+                    <div>
+                        <label for="nombre">¿Desea que se conozca la identidad de su empresa?</label>
+                        <div>
+                            <label for="visibilidad">Si</label>
+                            <input type="radio" name="visibilidad" value="Si">
+                        </div>
+                        <div>
+                            <label for="visibilidad">No</label>
+                            <input type="radio" name="visibilidad" value="No">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="nombre">¿Dispone su empresa de un Departamento de Formación dentro de la
+                            empresa?</label>
+                        <div>
+                            <label for="DP_Formacion">Si</label>
+                            <input type="radio" name="dp_formacion" value="Si">
+                        </div>
+                        <div>
+                            <label for="DP_Formacion">No</label>
+                            <input type="radio" name="dp_formacion" value="No">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="nombre">Alcance de la empresa</label>
+                        <div>
+                            <label for="Alcance">Nacional/Local</label>
+                            <input type="radio" name="alcance" value="Nacional/Local">
+                        </div>
+                        <div>
+                            <label for="Alcance">Multinacional</label>
+                            <input type="radio" name="alcance" value="Multinacional">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="nombre">Actividad económica a la que se dedica la empresa</label>
+                        <div>
+                            <textarea name="actividad_economica" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="nombre">Industria</label>
+                        <input type="text" name="industria">
+                    </div>
+                    <div>
+                        <label for="nombre">Tamaño</label>
+                        <input type="number" name="tamano">
+                    </div>
+                    <div>
+                        <label for="nombre">Direccion</label>
+                        <input type="text" name="direccion">
+                    </div>
+                    <div>
+                        <label for="nombre">Sector</label>
+                        <input type="text" name="sector">
+                    </div>
+                    <div>
+                        <label for="nombre">Sección</label>
+                        <input type="text" name="seccion">
+                    </div>
+                    <div>
+                        <label for="nombre">Municipio</label>
+                        <input type="text" name="municipio">
+                    </div>
+                    <div>
+                        <label for="nombre">Provincia</label>
+                        <input type="text" name="provincia">
+                    </div>
+                    <div>
+                        <label for="nombre">País donde opera la empresa</label>
+                        <input type="text" name="pais">
+                    </div>
+                    <div>
+                        <label for="nombre">Teléfono Principal</label>
+                        <input type="number" name="telefono_principal">
+                    </div>
+                    <div>
+                        <label for="nombre">Teléfono Directo</label>
+                        <input type="number" name="telefono_directo">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Agregar</button>
+
+                </form>
+            </div>
         </main>
     </div>
 

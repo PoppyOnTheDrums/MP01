@@ -197,7 +197,7 @@
 
         <!-- Page Content -->
         <main>
-         esta es la pagina principal
+        Esta es la pagina para el formulario de el egresado
         </main>
     </div>
 

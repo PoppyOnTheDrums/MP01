@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\homeController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\Admin\ProductosCrudController;
 use App\Http\Controllers\Admin\UserController;
 use App\Models\User;
+use App\Http\Controllers\EgresadoFormController;
+use App\Http\Controllers\EmpresaFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +20,11 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    return view('tienda.home');
+    return view('app.home');
 })->name('inicio');
 
 Route::get('/home', function () {
-    return view('tienda.home');
+    return view('app.home');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -35,3 +37,15 @@ Route::prefix('Tecko')->group(function () {
     Route::get('/home',[homeController::class, 'show'])->name('app.home');
 
 });
+
+//Por esta ruta se manda al formulario en el cual se rellena la informacion par la incercion
+Route::get('Egresado/Form',[EgresadoFormController::class, 'index'])->name('app.egresadoform');
+
+//Por esta ruta se muestra el formulario
+Route::get('Empresa/Form',[EmpresaFormController::class, 'index'])->name('app.empresaform');
+
+//Por esta ruta se manda la informacion del formulario a la base de datos
+Route::post('store',[EmpresaFormController::class, 'store'])->name('app.empresastore');
+
+//por esta ruta se actualiza el registro
+Route::put('update', [EmpresaFormController::class, 'update'])->name('app.empresaupdate');
