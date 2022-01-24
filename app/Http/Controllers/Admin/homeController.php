@@ -27,13 +27,7 @@ class homeController extends Controller
     }
 
     public function show(){
-        return view('tienda.home'); 
-    
-    }
-    public function shop(){
-
-        $producto = producto::all();
-        return view('tienda.shop',compact('producto')); 
+        return view('app.home'); 
     
     }
 }

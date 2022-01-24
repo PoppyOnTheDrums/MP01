@@ -241,51 +241,9 @@ return [
         ],
         [
             'text' => 'Pagina Principal',
-            'route' => 'tienda.home',
+            'route' => 'app.home',
             'icon' => 'fas fa-home'
         ],
-        ['header' => 'Administracion | Usuarios'],
-        [
-            'text' => 'Usuarios',
-            'route' => 'admin.user',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-
-        ['header' => 'Administracion | Productos'],
-        [
-            'text' => 'Lista de Productos',
-            'route' => 'admin.productos',
-            'icon'    => 'fas fa-clipboard-list',
-        ],
-        [
-            'text' => 'Añadir Producto',
-            'route' => 'admin.productocrear',
-            'icon'    => 'fas fa-fw fa-boxes',
-        ],
-        ['header' => 'Administracion | Suplidor'],
-        [
-            'text' => 'Lista de Suplidores',
-            'route' => 'admin.suplidor',
-            'icon'    => 'fas fa-clipboard-list',
-        ],
-        [
-            'text' => 'Añadir Suplidor',
-            'route' => 'admin.suplidorcreate',
-            'icon'    => 'fas fa-parachute-box',
-        ],
-        ['header' => 'Administracion | Categorias'],
-        [
-            'text' => 'Lista de Categorias',
-            'route' => 'admin.categoria',
-            'icon'    => 'fas fa-clipboard-list',
-        ],
-        [
-            'text' => 'Añadir Categoria',
-            'route' => 'admin.categoriacreate',
-            'icon'    => 'fas fa-archive',
-        ],
-    
-    
        
 
 

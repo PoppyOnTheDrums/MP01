@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use PhpParser\Node\Expr\Assign;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -25,13 +26,23 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+            'type' => ['required'],
         ])->validate();
 
-        return User::create([
+        
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'type' => $input['type'],
         ]);
+
+        if($input['type'] == "empresa"){
+            $user->assignRole('Admin');
+        }else{
+            $user->assignRole('Usuario');
+        }
+
+        return $user;
     }
 }

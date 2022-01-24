@@ -32,7 +32,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 /* Route::get('/home',[homeController::class, 'show'])->name('tienda.home'); */
 
 Route::prefix('Tecko')->group(function () {
-    Route::get('/home',[homeController::class, 'show'])->name('tienda.home');
+    Route::get('/home',[homeController::class, 'show'])->name('app.home');
 
-    Route::get('/Tienda',[homeController::class, 'shop'])->name('tienda.shop');
 });

@@ -13,7 +13,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('css/tienda.css') }}">
 
     @livewireStyles
 
@@ -62,14 +61,9 @@
                                     @else
                                     <div class="flex">
                                         <!-- Navigation Links -->
+                                  
                                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                            <x-jet-nav-link href="{{ route('tienda.shop') }}"
-                                                :active="request()->routeIs('dashboard')">
-                                                {{ __('Tienda') }}
-                                            </x-jet-nav-link>
-                                        </div>
-                                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                            <x-jet-nav-link href="{{ route('tienda.home') }}"
+                                            <x-jet-nav-link href="{{ route('app.home') }}"
                                                 :active="request()->routeIs('dashboard')">
                                                 {{ __('Home') }}
                                             </x-jet-nav-link>
@@ -102,11 +96,7 @@
                                     @endcan
 
                                     <!-- Authentication -->
-                                    <x-jet-responsive-nav-link href="{{ route('tienda.shop') }}"
-                                        :active="request()->routeIs('profile.show')">
-                                        {{ __('Tienda') }}
-                                    </x-jet-responsive-nav-link>
-                                    <x-jet-responsive-nav-link href="{{ route('tienda.home') }}"
+                                    <x-jet-responsive-nav-link href="{{ route('app.home') }}"
                                         :active="request()->routeIs('profile.show')">
                                         {{ __('Inicio') }}
                                     </x-jet-responsive-nav-link>
@@ -160,11 +150,7 @@
                     <div class="mt-3 space-y-1">
                         <!-- Account Management -->
                         @if(Auth::check())
-                        <x-jet-responsive-nav-link href="{{ route('tienda.shop') }}"
-                            :active="request()->routeIs('profile.show')">
-                            {{ __('Tienda') }}
-                        </x-jet-responsive-nav-link>
-                        <x-jet-responsive-nav-link href="{{ route('tienda.home') }}"
+                        <x-jet-responsive-nav-link href="{{ route('app.home') }}"
                             :active="request()->routeIs('profile.show')">
                             {{ __('Inicio') }}
                         </x-jet-responsive-nav-link>
@@ -179,11 +165,7 @@
                         </form>
 
                         @else
-                        <x-jet-responsive-nav-link href="{{ route('tienda.shop') }}"
-                            :active="request()->routeIs('profile.show')">
-                            {{ __('Tienda') }}
-                        </x-jet-responsive-nav-link>
-                        <x-jet-responsive-nav-link href="{{ route('tienda.home') }}"
+                        <x-jet-responsive-nav-link href="{{ route('app.home') }}"
                             :active="request()->routeIs('profile.show')">
                             {{ __('Inicio') }}
                         </x-jet-responsive-nav-link>
@@ -205,10 +187,7 @@
 
         <!-- Page Content -->
         <main>
-            <div class="title-container">
-                <h1>Productos</h1>
-            </div>
-           
+
         </main>
     </div>
 
