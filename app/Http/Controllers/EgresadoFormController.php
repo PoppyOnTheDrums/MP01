@@ -52,6 +52,34 @@ class EgresadoFormController extends Controller
 
         $user_id = Auth::user()->id;
 
+        $request->validate([
+
+            'graduacion' => 'required',
+            'institucion_educativa' => 'required',
+            'curso' => 'required',
+            'matricula' => 'required',
+            'cedula' => 'required',
+            'carrera_tecnica' => 'required',
+            'tecnico_basico' => 'required',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'fecha_nac' => 'required',
+            'sexo' => 'required',
+            'direccion' => 'required',
+            'sector' => 'required',
+            'seccion' => 'required',
+            'municipio' => 'required',
+            'provincia' => 'required',
+            'pais_nacionalidad' => 'required',
+            'telefono_recidencial' => 'required',
+            'telefono_movil' => 'required',
+            'email' => 'required',
+            'experiencia' => 'required',
+            'area_tecnica_trabajo' => 'required',
+
+
+        ]);
+
         if ($request->licencia) {
             $egresado->licencia = $request->licencia;
         }
@@ -80,6 +108,8 @@ class EgresadoFormController extends Controller
         $egresado->telefono_recidencial = $request->telefono_recidencial;
         $egresado->telefono_movil = $request->telefono_movil;
         $egresado->email = $request->email;
+        $egresado->experiencia = $request->experiencia;
+        $egresado->area_tecnica_trabajo = $request->area_tecnica_trabajo;
 
 
         $egresado->save();
@@ -120,6 +150,35 @@ class EgresadoFormController extends Controller
     {
         $user_id = Auth::user()->id;
         $egresado = egresado::find($user_id);
+        
+        
+        $request->validate([
+
+            'graduacion' => 'required',
+            'institucion_educativa' => 'required',
+            'curso' => 'required',
+            'matricula' => 'required',
+            'cedula' => 'required',
+            'carrera_tecnica' => 'required',
+            'tecnico_basico' => 'required',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'fecha_nac' => 'required',
+            'sexo' => 'required',
+            'direccion' => 'required',
+            'sector' => 'required',
+            'seccion' => 'required',
+            'municipio' => 'required',
+            'provincia' => 'required',
+            'pais_nacionalidad' => 'required',
+            'telefono_recidencial' => 'required',
+            'telefono_movil' => 'required',
+            'email' => 'required',
+            'experiencia' => 'required',
+            'area_tecnica_trabajo' => 'required',
+
+
+        ]);
 
         if ($request->licencia) {
             $egresado->licencia = $request->licencia;
@@ -149,6 +208,8 @@ class EgresadoFormController extends Controller
         $egresado->telefono_recidencial = $request->telefono_recidencial;
         $egresado->telefono_movil = $request->telefono_movil;
         $egresado->email = $request->email;
+        $egresado->experiencia = $request->experiencia;
+        $egresado->area_tecnica_trabajo = $request->area_tecnica_trabajo;
 
         $egresado->update();
 

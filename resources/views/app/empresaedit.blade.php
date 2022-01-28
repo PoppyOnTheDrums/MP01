@@ -192,43 +192,57 @@
                     <div>
                         <label for="nombre">Nombre</label>
                         <input type="text" name="nombre" value="{{$empresa->nombre}}">
+                        @error('nombre')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">RNC</label>
                         <input type="number" name="rnc" value="{{$empresa->rnc}}">
+                        @error('rnc')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">¿Desea que se conozca la identidad de su empresa?</label>
                         <div>
-                            <label for="visibilidad">Si</label>
-                            <input type="radio" name="visibilidad" value="Si">
-                        </div>
-                        <div>
-                            <label for="visibilidad">No</label>
-                            <input type="radio" name="visibilidad" value="No">
+                            <select name="visibilidad">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                            @error('visibilidad')
+                            <small class="text-danger">*Campo requerido</small>
+                            <br>
+                            @enderror
                         </div>
                     </div>
                     <div>
                         <label for="nombre">¿Dispone su empresa de un Departamento de Formación dentro de la
                             empresa?</label>
                         <div>
-                            <label for="DP_Formacion">Si</label>
-                            <input type="radio" name="dp_formacion" value="Si">
-                        </div>
-                        <div>
-                            <label for="DP_Formacion">No</label>
-                            <input type="radio" name="dp_formacion" value="No">
+                            <select name="dp_formacion">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                            @error('dp_formacion')
+                            <small class="text-danger">*Campo requerido</small>
+                            <br>
+                            @enderror
                         </div>
                     </div>
                     <div>
                         <label for="nombre">Alcance de la empresa</label>
                         <div>
-                            <label for="Alcance">Nacional/Local</label>
-                            <input type="radio" name="alcance" value="Nacional/Local">
-                        </div>
-                        <div>
-                            <label for="Alcance">Multinacional</label>
-                            <input type="radio" name="alcance" value="Multinacional">
+                            <select name="alcance">
+                                <option value="Nacional/Local">Nacional/Local</option>
+                                <option value="Multinacional">Multinacional</option>
+                            </select>
+                            @error('alcance')
+                            <small class="text-danger">*Campo requerido</small>
+                            <br>
+                            @enderror
                         </div>
                     </div>
                     <div>
@@ -236,46 +250,125 @@
                         <div>
                             <textarea name="actividad_economica" cols="30" rows="10">{{$empresa->actividad_economica}}</textarea>
                         </div>
+                        @error('actividad_economica')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Industria</label>
                         <input type="text" name="industria" value="{{$empresa->industria}}">
+                        @error('industria')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Tamaño</label>
                         <input type="number" name="tamano" value="{{$empresa->tamano}}">
+                        @error('tamano')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Direccion</label>
                         <input type="text" name="direccion" value="{{$empresa->direccion}}">
+                        @error('direccion')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Sector</label>
                         <input type="text" name="sector" value="{{$empresa->sector}}">
+                        @error('sector')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Sección</label>
                         <input type="text" name="seccion" value="{{$empresa->seccion}}">
+                        @error('seccion')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Municipio</label>
                         <input type="text" name="municipio" value="{{$empresa->municipio}}">
+                        @error('municipio')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Provincia</label>
-                        <input type="text" name="provincia" value="{{$empresa->provincia}}">
+                        <div>
+                            <select name="provincia">
+                                <option value="Azúa">Azúa</option>
+                                <option value="Baoruco">Baoruco</option>
+                                <option value="Barahona">Barahona</option>
+                                <option value="Dajabón">Dajabón</option>
+                                <option value="Distrito Nacional">Distrito Nacional</option>
+                                <option value="Duarte">Duarte</option>
+                                <option value=" Elías Pina">Elías Pina</option>
+                                <option value="El Seibo">El Seibo</option>
+                                <option value="Espaillat">Espaillat</option>
+                                <option value="Hato Mayor">Hato Mayor</option>
+                                <option value="Independencia">Independencia</option>
+                                <option value="La Altagracia">La Altagracia</option>
+                                <option value="La Romana">La Romana</option>
+                                <option value="La Vega">La Vega</option>
+                                <option value=" Maria Trinidad Sanchez"> Maria Trinidad Sanchez</option>
+                                <option value="Monseñor Nouel">Monseñor Nouel</option>
+                                <option value="Monte Cristi">Monte Cristi</option>
+                                <option value="Monte Plata">Monte Plata</option>
+                                <option value="Pedernales">Pedernales</option>
+                                <option value="Peravia">Peravia</option>
+                                <option value="Puerto Plata">Puerto Plata</option>
+                                <option value="Salcedo">Salcedo</option>
+                                <option value="Samana">Samana</option>
+                                <option value="Sánchez Ramírez">Sánchez Ramírez</option>
+                                <option value="San Cristobal">San Cristobal</option>
+                                <option value="San Jose de Ocoa">San Jose de Ocoa</option>
+                                <option value="San Juan">San Juan</option>
+                                <option value="San Pedro de Macorís">San Pedro de Macorís</option>
+                                <option value="Santiago">Santiago</option>
+                                <option value="Santiago Rodríguez">Santiago Rodríguez</option>
+                                <option value="Santo Domingo">Santo Domingo</option>
+                                <option value="Valverde">Valverde</option>
+                            </select>
+                            @error('provincia')
+                            <small class="text-danger">*Campo requerido</small>
+                            <br>
+                            @enderror
+                        </div>
                     </div>
                     <div>
                         <label for="nombre">País donde opera la empresa</label>
                         <input type="text" name="pais" value="{{$empresa->pais}}">
+                        @error('pais')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Teléfono Principal</label>
                         <input type="number" name="telefono_principal" value="{{$empresa->telefono_principal}}">
+                        @error('telefono_principal')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Teléfono Directo</label>
                         <input type="number" name="telefono_directo" value="{{$empresa->telefono_directo}}">
+                        @error('telefono_directo')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">editar</button>
 

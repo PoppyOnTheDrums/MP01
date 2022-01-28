@@ -20,13 +20,11 @@ class VacanteController extends Controller
         $empresa = new empresa();
         $user_id = Auth::user()->id;
         $empresa_ = empresa::find($user_id);
-        $empresa_id = $empresa_->id;
-
-     
-
-        $vacante = vacante::where('empresa_id', '=', $empresa_id)->get();
 
         if(empresa::find($user_id)){
+
+            $empresa_id = $empresa_->id;
+            $vacante = vacante::where('empresa_id', '=', $empresa_id)->get();
             
 
             return view('app.vacante',compact('vacante'));

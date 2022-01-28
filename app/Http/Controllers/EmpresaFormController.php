@@ -51,6 +51,29 @@ class EmpresaFormController extends Controller
 
         $user_id = Auth::user()->id;
 
+        $request->validate([
+
+            'nombre' => 'required',
+            'rnc' => 'required',
+            'visibilidad' => 'required',
+
+
+            'dp_formacion' => 'required',
+            'alcance' => 'required',
+            'actividad_economica' => 'required',
+            'industria' => 'required',
+            'tamano' => 'required',
+            'sector' => 'required',
+            'seccion' => 'required',
+            'municipio' => 'required',
+            'provincia' => 'required',
+            'pais' => 'required',
+            'telefono_principal' => 'required',
+            'telefono_directo' => 'required',
+
+        ]);
+
+
 
         $empresa->user_id = $user_id;
         $empresa->nombre = $request->nombre;
@@ -111,6 +134,30 @@ class EmpresaFormController extends Controller
     {
         $user_id = Auth::user()->id;
         $empresa = empresa::find($user_id);
+
+
+        $request->validate([
+
+            'nombre' => 'required',
+            'rnc' => 'required',
+            'visibilidad' => 'required',
+
+
+            'dp_formacion' => 'required',
+            'alcance' => 'required',
+            'actividad_economica' => 'required',
+            'industria' => 'required',
+            'tamano' => 'required',
+            'sector' => 'required',
+            'seccion' => 'required',
+            'municipio' => 'required',
+            'provincia' => 'required',
+            'pais' => 'required',
+            'telefono_principal' => 'required',
+            'telefono_directo' => 'required',
+
+        ]);
+
 
         $empresa->nombre = $request->nombre;
         $empresa->rnc = $request->rnc;

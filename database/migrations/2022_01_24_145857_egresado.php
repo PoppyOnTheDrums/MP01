@@ -38,6 +38,8 @@ class Egresado extends Migration
             $table->string('licencia')->default('no');
             $table->string('vehiculo')->default('no');
             $table->text('email');
+            $table->integer('experiencia');
+            $table->text('area_tecnica_trabajo');
             $table->timestamps();
 
         });

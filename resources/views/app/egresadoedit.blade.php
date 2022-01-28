@@ -60,7 +60,7 @@
                                             </button>
                                         </span>
                                     </div>
-                               
+
                                     @else
                                     <div class="flex">
                                         <!-- Navigation Links -->
@@ -201,7 +201,7 @@
         <!-- Page Content -->
         <main>
             se edita el egresado
-        <div>
+            <div>
                 <form autocomplete="off" action="{{route('app.egresadoupdate')}}" method="POST">
                     @csrf
                     @method('PUT')
@@ -209,98 +209,237 @@
                     <div>
                         <label for="nombre">Año de Graduación</label>
                         <input type="number" name="graduacion" value="{{$egresado->graduacion}}">
+                        @error('graduacion')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Institución educativa a la que pertenece</label>
                         <input type="text" name="institucion_educativa" value="{{$egresado->institucion_educativa}}">
+                        @error('institucion_educativa')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Curso</label>
                         <input type="text" name="curso" value="{{$egresado->curso}}">
+                        @error('curso')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Matrícula</label>
                         <input type="number" name="matricula" value="{{$egresado->matricula}}">
+                        @error('matricula')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Cédula de Identidad</label>
                         <input type="number" name="cedula" value="{{$egresado->cedula}}">
+                        @error('cedula')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Carrera Técnica</label>
                         <input type="text" name="carrera_tecnica" value="{{$egresado->carrera_tecnica}}">
+                        @error('carrera_tecnica')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Técnico Básico</label>
                         <input type="text" name="tecnico_basico" value="{{$egresado->tecnico_basico}}">
+                        @error('tecnico_basico')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Nombres</label>
                         <input type="text" name="nombre" value="{{$egresado->nombre}}">
+                        @error('nombre')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Apellidos</label>
                         <input type="text" name="apellido" value="{{$egresado->apellido}}">
+                        @error('apellido')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Fecha de Nacimiento</label>
                         <input type="date" name="fecha_nac" value="{{$egresado->fecha_nac}}">
+                        @error('fecha_nac')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Sexo</label>
+
                         <div>
-                            <label for="nombre">Masculino</label>
-                            <input type="radio" name="sexo" value="masculino">
-                        </div>
-                        <div>
-                            <label for="nombre">Femenino</label>
-                            <input type="radio" name="sexo" value="femenino">
+                            <select name="sexo">
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                            </select>
+                            @error('sexo')
+                            <small class="text-danger">*Campo requerido</small>
+                            <br>
+                            @enderror
                         </div>
                     </div>
                     <div>
                         <label for="nombre">Dirección</label>
                         <input type="text" name="direccion" value="{{$egresado->direccion}}">
+                        @error('direccion')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Sector</label>
                         <input type="text" name="sector" value="{{$egresado->sector}}">
+                        @error('sector')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Sección</label>
                         <input type="text" name="seccion" value="{{$egresado->seccion}}">
+                        @error('seccion')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Municipio</label>
                         <input type="text" name="municipio" value="{{$egresado->municipio}}">
+                        @error('municipio')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Provincia</label>
-                        <input type="text" name="provincia" value="{{$egresado->provincia}}">
+                        <div>
+                            <select name="provincia">
+                                <option value="Azúa">Azúa</option>
+                                <option value="Baoruco">Baoruco</option>
+                                <option value="Barahona">Barahona</option>
+                                <option value="Dajabón">Dajabón</option>
+                                <option value="Distrito Nacional">Distrito Nacional</option>
+                                <option value="Duarte">Duarte</option>
+                                <option value=" Elías Pina">Elías Pina</option>
+                                <option value="El Seibo">El Seibo</option>
+                                <option value="Espaillat">Espaillat</option>
+                                <option value="Hato Mayor">Hato Mayor</option>
+                                <option value="Independencia">Independencia</option>
+                                <option value="La Altagracia">La Altagracia</option>
+                                <option value="La Romana">La Romana</option>
+                                <option value="La Vega">La Vega</option>
+                                <option value=" Maria Trinidad Sanchez"> Maria Trinidad Sanchez</option>
+                                <option value="Monseñor Nouel">Monseñor Nouel</option>
+                                <option value="Monte Cristi">Monte Cristi</option>
+                                <option value="Monte Plata">Monte Plata</option>
+                                <option value="Pedernales">Pedernales</option>
+                                <option value="Peravia">Peravia</option>
+                                <option value="Puerto Plata">Puerto Plata</option>
+                                <option value="Salcedo">Salcedo</option>
+                                <option value="Samana">Samana</option>
+                                <option value="Sánchez Ramírez">Sánchez Ramírez</option>
+                                <option value="San Cristobal">San Cristobal</option>
+                                <option value="San Jose de Ocoa">San Jose de Ocoa</option>
+                                <option value="San Juan">San Juan</option>
+                                <option value="San Pedro de Macorís">San Pedro de Macorís</option>
+                                <option value="Santiago">Santiago</option>
+                                <option value="Santiago Rodríguez">Santiago Rodríguez</option>
+                                <option value="Santo Domingo">Santo Domingo</option>
+                                <option value="Valverde">Valverde</option>
+                            </select>
+                            @error('provincia')
+                            <small class="text-danger">*Campo requerido</small>
+                            <br>
+                            @enderror
+                        </div>
                     </div>
                     <div>
                         <label for="nombre">País de Nacionalidad</label>
                         <input type="text" name="pais_nacionalidad" value="{{$egresado->pais_nacionalidad}}">
+                        @error('pais_nacionalidad')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Teléfono Residencial</label>
                         <input type="number" name="telefono_recidencial" value="{{$egresado->telefono_recidencial}}">
+                        @error('telefono_recidencial')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Teléfono Móvil</label>
                         <input type="number" name="telefono_movil" value="{{$egresado->telefono_movil}}">
+                        @error('telefono_movil')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Posee licencia de conducir?</label>
                         <input type="checkbox" name="licencia" value="si">
+                        @error('licencia')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Posee vehículo propio?</label>
                         <input type="checkbox" name="vehiculo" value="si">
+                        @error('vehiculo')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
                     <div>
                         <label for="nombre">Email</label>
                         <input type="email" name="email" value="{{$egresado->email}}">
+                        @error('email')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
                     </div>
+                    <div>
+                        <label for="nombre">Años de Experiencia</label>
+                        <input class="caja" type="number" name="experiencia"  value="{{$egresado->experiencia}}">
+                        @error('experiencia')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="nombre">desean trabajar en el área técnica que estudiaron u otra área?</label>
+                        <input class="caja" type="text" name="area_tecnica_trabajo"  value="{{$egresado->area_tecnica_trabajo}}">
+                        @error('area_tecnica_trabajo')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
+                    </div>
+
                     <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Editar</button>
 
                 </form>
