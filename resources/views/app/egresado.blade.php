@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/egresado.css') }}">
     @livewireStyles
 
     <!-- Scripts -->
@@ -200,52 +200,88 @@
 
         <!-- Page Content -->
         <main>
-            En esta pagina el egresado llenara su informacion
+            <div class="prt1">
+            <h1 class="t1">En esta página el egresado llenará su información</h1>
         <div>
-                <form autocomplete="off" action="{{route('app.egresadostore')}}" method="POST">
-                    @csrf
+            <div class="formulario">
 
-                    <div>
-                        <label for="nombre">Año de Graduación</label>
-                        <input type="number" name="graduacion">
+                <h1 class="tEgresado">Egresado</h1>
+                <div class="linea"> </div>
+                <form class="formegresado" autocomplete="off" action="{{route('app.egresadostore')}}" method="POST">
+                    @csrf
+                <div class="campos">
+                <div class="sec1">
+                    <div class="campo">
+                        <label class="lab" for="nombre">Año de Graduación</label>
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="graduacion">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Institución educativa a la que pertenece</label>
-                        <input type="text" name="institucion_educativa">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="institucion_educativa">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Curso</label>
-                        <input type="text" name="curso">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="curso">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Matrícula</label>
-                        <input type="number" name="matricula">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="matricula">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Cédula de Identidad</label>
-                        <input type="number" name="cedula">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="cedula">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Carrera Técnica</label>
-                        <input type="text" name="carrera_tecnica">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="carrera_tecnica">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Técnico Básico</label>
-                        <input type="text" name="tecnico_basico">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="tecnico_basico">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Nombres</label>
-                        <input type="text" name="nombre">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="nombre">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Apellidos</label>
-                        <input type="text" name="apellido">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="apellido">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Fecha de Nacimiento</label>
-                        <input type="date" name="fecha_nac">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="date" name="fecha_nac">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Sexo</label>
                         <div>
                             <label for="nombre">Masculino</label>
@@ -256,54 +292,95 @@
                             <input type="radio" name="sexo" value="femenino">
                         </div>
                     </div>
-                    <div>
+                        </div>
+                    <div class="sec2">
+                    <div class="campo">
                         <label for="nombre">Dirección</label>
-                        <input type="text" name="direccion">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="direccion">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Sector</label>
-                        <input type="text" name="sector">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="sector">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Sección</label>
-                        <input type="text" name="seccion">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="seccion">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Municipio</label>
-                        <input type="text" name="municipio">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="municipio">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Provincia</label>
-                        <input type="text" name="provincia">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="provincia">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">País de Nacionalidad</label>
-                        <input type="text" name="pais_nacionalidad">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="pais_nacionalidad">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Teléfono Residencial</label>
-                        <input type="number" name="telefono_recidencial">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="telefono_recidencial">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Teléfono Móvil</label>
-                        <input type="number" name="telefono_movil">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="telefono_movil">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Posee licencia de conducir?</label>
+                        <br>
+                        <div class="espacio"></div>
+
                         <input type="checkbox" name="licencia" value="si">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Posee vehículo propio?</label>
+
+                        <br>
+                        <div class="espacio"></div>
+
                         <input type="checkbox" name="vehiculo" value="si">
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Email</label>
-                        <input type="email" name="email">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Agregar</button>
+                        <br>
+                        <div class="espacio"></div>
 
+                        <input class="caja" type="email" name="email">
+                    </div>
+                    </div>
+                </div>
+                <div class="centrar-btn">
+                    <button id="btn-agregar" type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Agregar</button>
+                </div>
                 </form>
+                </div>
             </div>
+</div> 
         </main>
     </div>
 
