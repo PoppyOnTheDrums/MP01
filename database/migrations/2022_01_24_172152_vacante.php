@@ -15,6 +15,7 @@ class Vacante extends Migration
     {
         Schema::create('vacantes', function (Blueprint $table) {
             $table->id();
+            $table->index('user_id');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('empresa_id')->references('id')->on('empresas');
             $table->text('nombre');
@@ -27,7 +28,7 @@ class Vacante extends Migration
             $table->text('correro_curriculum');
             $table->integer('telefono');
             $table->text('persona_contacto');
-            $table->string('estado')->default('cerrada'); 
+            $table->string('estado')->default('abierta'); 
             $table->timestamps();
 
         });

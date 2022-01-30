@@ -244,25 +244,27 @@ return [
             'route' => 'app.home',
             'icon' => 'fas fa-home'
         ],
-       
 
 
-        /*  ['header' => 'labels'],
+
+        ['header' => 'Info | Empresas'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text' => 'Vacantes',
+            'route' => 'admin.vacante',
+            'icon' => 'fas fa-address-book'
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text' => 'Empresas',
+            'route' => 'admin.empresa',
+            'icon' => 'fas fa-building'
         ],
+        ['header' => 'Info | Estudiantes'],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ], */
+            'text' => 'Egresados',
+            'route' => 'admin.egresado',
+            'icon' => 'fas fa-user-graduate'
+        ],
+
     ],
 
     /*
