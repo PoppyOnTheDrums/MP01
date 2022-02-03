@@ -19,14 +19,13 @@ class EmpresaFormController extends Controller
         //error por arreglar find ID
         
         $user_id = Auth::user()->id;
+    
+        $encontrar = empresa::find($user_id);
 
-        $empresa = empresa::where('user_id',  'LIKE', '%' . $user_id . '%');
 
-
-
-        if ($empresa) {
+        if ($encontrar) {
             $user_id = Auth::user()->id;
-            $empresa = empresa::find($user_id);
+            $empresa = empresa::where('user_id', '=', $user_id)->first();
 
             return view('app.empresaedit', compact('empresa'));
         } else {
