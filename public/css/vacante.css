@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.rounded-md {
+    z-index: 1000;
+}
+
+.prt1 {
+  background: rgb(34,153,195);
+background: linear-gradient(0deg, rgba(34,153,195,1) 0%, rgba(253,167,45,1) 100%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 90vh;
+}
+
+.t1{
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+.t3{
+  margin-top: 0px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+.wrapper-t2{
+  padding-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  
+}
+
+
+
+
+.t2{
+  font-size: 18px;
+  color: rgb(0, 0, 0);  
+  background-color: rgb(240, 240, 240);
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+
+.formulario {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 90vw;
+  background-color: #fff;
+  opacity: 1;
+  border-radius: 8px;
+  -webkit-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55); 
+  box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
+}
+
+.formegresado {
+  padding: 60px;
+  padding-top: 45px;
+}
+
+.campos {
+  display: flex;
+}
+
+
+
+.caja {
+  height: 40px;
+  width: 90%;
+  border-radius: 2px;
+}
+
+.sec1 {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.sec2 {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.campo {
+  margin-bottom: 30px;
+}
+
+.campo label {
+  font-size: 16px;
+  font-weight: 500;  
+}
+
+.espacio {
+  height: 5px;
+}
+
+.tEgresado {
+  font-size: 30px;
+  font-weight: 600;
+  padding-top: 60px;
+  padding-left: 60px;
+}
+
+
+.linea {
+  margin-left: 60px;
+  margin-top: 15px;
+  width: 100px;
+  height: 4px;
+  
+}
+
+#btn-agregar {
+  color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+ 
+  
+}
+
+
+
+.centrar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.registros {
+  width: 90%;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+
+.ts {
+  display: flex;
+  flex-grow: 1;
+}
+
+.t-title {
+  font-weight: 600;
+  flex-grow: 1;
+  flex-basis: 0;
+  background-color: rgb(134, 199, 223);
+  padding: 10px;
+  border-left: solid 2px rgb(255, 255, 255);
+}
+
+.rows {
+  display: flex;
+  flex-grow: 1;
+  border-radius: 3px;
+  
+}
+
+.t-row {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 10px;
+  background-color: rgb(240, 240, 240);
+  border-left: solid 2px rgb(255, 255, 255);
+  
+}
+
+#f {
+  opacity: 1;
+}
+
+#edit-btn {
+  text-align: center;
+  background-color: default;
+}

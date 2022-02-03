@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.rounded-md {
+    z-index: 1000;
+}
+
+.prt1 {
+  background: rgb(9,9,121);
+  background: linear-gradient(350deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.t1{
+  margin-top: 80px;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.formulario {
+  margin-top: 25px;
+  margin-bottom: 60px;
+  width: 80vw;
+  background-color: #fff;
+  opacity: 1;
+  border-radius: 8px;
+  -webkit-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55); 
+  box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
+}
+
+.formegresado {
+  padding: 60px;
+  padding-top: 45px;
+}
+
+.campos {
+  display: flex;
+}
+
+
+
+.caja {
+  height: 40px;
+  width: 90%;
+  border-radius: 2px;
+}
+
+.sec1 {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.sec2 {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.campo {
+  margin-bottom: 30px;
+}
+
+.campo label {
+  font-size: 16px;
+  font-weight: 500;  
+}
+
+.espacio {
+  height: 5px;
+}
+
+.tEgresado {
+  font-size: 30px;
+  font-weight: 600;
+  padding-top: 60px;
+  padding-left: 60px;
+}
+
+
+.linea {
+  margin-left: 60px;
+  margin-top: 15px;
+  width: 100px;
+  height: 4px;
+  background: rgb(9,9,121);
+background: linear-gradient(350deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+#btn-agregar {
+  color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  background: rgb(4,4,124);
+background: linear-gradient(351deg, rgba(4,4,124,1) 0%, rgba(0,121,255,1) 100%);
+  
+}
+
+
+
+.centrar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}

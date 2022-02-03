@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vacantefrm.css') }}">
 
     @livewireStyles
 
@@ -189,61 +190,87 @@
 
         <!-- Page Content -->
         <main>
-            <h1>esta es la pagina se crean las vacantes</h1>
+        <div class="prt1">
+                
+            <h1 class="t1">Esta es la pagina se crean las vacantes</h1>
+            <div>
+                    <div class="formulario">
 
-            <form autocomplete="off" action="{{route('app.vacantesstore')}}" method="POST">
+                    <h1 class="tEgresado">Vacante</h1>
+                        <div class="linea"> </div>
+
+            <form class="formegresado" autocomplete="off" action="{{route('app.vacantesstore')}}" method="POST">
                 @csrf
-
-                <div>
+                <div class="campos">
+                <div class="sec1">
+                <div class="campo">
                     <label>Puesto</label>
+                    <br />
                     <input type="text" name="puesto">
                 </div>
 
-                <div>
+                <div class="campo">
                     <label>Funciones o perfil del puesto</label>
+                    <br />
                     <textarea name="perfi_puesto" cols="30" rows="10"></textarea>
                 </div>
 
-                <div> <label>Sueldo</label>
+                <div class="campo"> <label>Sueldo</label>
+                <br />
                     <input type="number" step="any"  name="sueldo">
                 </div>
-
-                <div>
+                </div>
+                <div class="sec2">
+                <div class="campo">
                     <label>Ubicación</label>
+                    <br />
                     <input type="text" name="ubicacion">
 
                 </div>
 
-                <div> <label>Tipo de contrato</label>
+                <div class="campo"> <label>Tipo de contrato</label>
+                <br />
                     <input type="text" name="tipo_contrato">
                 </div>
 
-                <div>
+                <div class="campo">
                     <label>Horario</label>
+                    <br />
                     <input type="text" name="horario">
                 </div>
 
-                <div>
+                <div class="campo">
                     <label>Correo al que se debe enviar los curriculum</label>
+                    <br />
                     <input type="text" name="correro_curriculum">
                 </div>
 
-                <div> <label>Persona de contacto</label>
+                <div class="campo"> <label>Persona de contacto</label>
+                <br />
                     <input type="text" name="persona_contacto">
                 </div>
 
-                <div>
+                <div class="campo">
                     <label>Teléfono</label>
+                    <br />
                     <input type="number" name="telefono">
 
                 </div>
-                <button type="submit">Crear Vacante</button>
+                </div>
+                </div>
+                <div class="centrar-btn">
+                <button id="btn-agregar" type="submit">Crear Vacante</button>
+                </div>
 
-
-
+               
 
             </form>
+            </div>
+            </div>
+            </div>
+            </div>
         </main>
+
     </div>
 
     @stack('modals')
