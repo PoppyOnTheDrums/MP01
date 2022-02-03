@@ -16,14 +16,12 @@ class RoleSeeder extends Seeder
     public function run()
     {
        $role1 = Role::create(['name' => 'Admin']);
-       $role2 = Role::create(['name' => 'Usuario']);
+       $role2 = Role::create(['name' => 'Empresa']);
+       $role3 = Role::create(['name' => 'Egresado']);
 
        Permission::create(['name' => 'admin.home'])->assignRole($role1);
-       Permission::create(['name' => 'admin.productoscrud'])->assignRole($role1);
-       Permission::create(['name' => 'admin.user'])->assignRole($role1);
-       Permission::create(['name' => 'admin.productos'])->assignRole($role1);
-       Permission::create(['name' => 'admin.usercrud'])->assignRole($role1);
-       Permission::create(['name' => 'admin.categoriacrud'])->assignRole($role1);
-       Permission::create(['name' => 'admin.suplidorcrud'])->assignRole($role1);
+       Permission::create(['name' => 'empresa.all'])->assignRole($role1,$role2);
+       Permission::create(['name' => 'egresado.all'])->assignRole($role1,$role3);
+ 
     }
 }

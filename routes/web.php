@@ -34,39 +34,39 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 /* Route::get('/home',[homeController::class, 'show'])->name('tienda.home'); */
 
-Route::prefix('Tecko')->group(function () {
+Route::prefix('IPISA')->group(function () {
     Route::get('/home',[homeController::class, 'show'])->name('app.home');
 
 });
 
 //Por esta ruta se manda al formulario en el cual se rellena la informacion par la incercion
-Route::get('Egresado/Form',[EgresadoFormController::class, 'index'])->name('app.egresadoform');
+Route::get('Egresado/Form',[EgresadoFormController::class, 'index'])->middleware('can:egresado.all')->name('app.egresadoform');
 
 //por esta ruta se manda la informacion del formulario a la base de datos
-Route::post('Egresado/store',[EgresadoFormController::class, 'store'])->name('app.egresadostore');
+Route::post('Egresado/store',[EgresadoFormController::class, 'store'])->middleware('can:egresado.all')->name('app.egresadostore');
 
 //por esta ruta se actualiza el registro 
-Route::put('Egresado/update',[EgresadoFormController::class, 'update'])->name('app.egresadoupdate');
+Route::put('Egresado/update',[EgresadoFormController::class, 'update'])->middleware('can:egresado.all')->name('app.egresadoupdate');
 
 //Por esta ruta se muestra el formulario
-Route::get('Empresa/Form',[EmpresaFormController::class, 'index'])->name('app.empresaform');
+Route::get('Empresa/Form',[EmpresaFormController::class, 'index'])->middleware('can:empresa.all')->name('app.empresaform');
 
 //Por esta ruta se manda la informacion del formulario a la base de datos
-Route::post('store',[EmpresaFormController::class, 'store'])->name('app.empresastore');
+Route::post('store',[EmpresaFormController::class, 'store'])->middleware('can:empresa.all')->name('app.empresastore');
 
 //por esta ruta se actualiza el registro
-Route::put('update', [EmpresaFormController::class, 'update'])->name('app.empresaupdate');
+Route::put('update', [EmpresaFormController::class, 'update'])->middleware('can:empresa.all')->name('app.empresaupdate');
 
 //por esta ruta se mestran las vacantes
-Route::get('Vacante',[VacanteController::class, 'index'])->name('app.vacantes');
+Route::get('Vacante',[VacanteController::class, 'index'])->middleware('can:empresa.all')->name('app.vacantes');
 
 //por esta ruta se lleva a la ventana de crear
-Route::get('Vacantes/create', [VacanteController::class, 'create'])->name('app.vacantescreate');
+Route::get('Vacantes/create', [VacanteController::class, 'create'])->middleware('can:empresa.all')->name('app.vacantescreate');
 
 //por esta ruta se manda la informacion a la base de datos
-Route::post('Vacantes/store',[VacanteController::class, 'store'])->name('app.vacantesstore');
+Route::post('Vacantes/store',[VacanteController::class, 'store'])->middleware('can:empresa.all')->name('app.vacantesstore');
 
 //por esta ruta se manda a la vancante a editar
-Route::get('Vacantes/{vacante}',[VacanteController::class, 'edit'])->name('app.vacantesedit');
+Route::get('Vacantes/{vacante}',[VacanteController::class, 'edit'])->middleware('can:empresa.all')->name('app.vacantesedit');
 
-Route::put('Vacantes/{vacante}',[VacanteController::class, 'update'])->name('app.vacantesupdate');
+Route::put('Vacantes/{vacante}',[VacanteController::class, 'update'])->middleware('can:empresa.all')->name('app.vacantesupdate');

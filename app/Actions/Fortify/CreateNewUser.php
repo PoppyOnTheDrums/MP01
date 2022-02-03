@@ -29,7 +29,7 @@ class CreateNewUser implements CreatesNewUsers
             'type' => ['required'],
         ])->validate();
 
-        
+
         $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
@@ -37,11 +37,15 @@ class CreateNewUser implements CreatesNewUsers
             'type' => $input['type'],
         ]);
 
-        if($input['type'] == "empresa"){
-            $user->assignRole('Admin');
-        }else{
-            $user->assignRole('Usuario');
+        if ($input['type'] == "empresa") {
+            $user->assignRole('Empresa');
         }
+
+        if ($input['type'] == "egresado") {
+            $user->assignRole('Egresado');
+        }
+
+
 
         return $user;
     }

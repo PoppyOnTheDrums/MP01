@@ -15,11 +15,16 @@ class EmpresaFormController extends Controller
      */
     public function index()
     {
-        $empresa = new empresa();
+
+        //error por arreglar find ID
+        
         $user_id = Auth::user()->id;
 
+        $empresa = empresa::where('user_id',  'LIKE', '%' . $user_id . '%');
 
-        if (empresa::find($user_id)) {
+
+
+        if ($empresa) {
             $user_id = Auth::user()->id;
             $empresa = empresa::find($user_id);
 

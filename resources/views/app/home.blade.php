@@ -97,15 +97,21 @@
                                     @endcan
 
                                     <!-- Authentication -->
+                                    @can('egresado.all')
                                     <x-jet-dropdown-link href="{{ route('app.egresadoform') }}">
                                         {{ __('IDI Egresado') }}
                                     </x-jet-dropdown-link>
+                                    @endcan
+                                    @can('empresa.all')
                                     <x-jet-dropdown-link href="{{ route('app.empresaform') }}">
                                         {{ __('IDI Empresa') }}
                                     </x-jet-dropdown-link>
+                                    @endcan
+                                    @can('empresa.all')
                                     <x-jet-dropdown-link href="{{ route('app.vacantes') }}">
                                         {{ __('Vacante') }}
                                     </x-jet-dropdown-link>
+                                    @endcan
                                     <x-jet-responsive-nav-link href="{{ route('app.home') }}" :active="request()->routeIs('profile.show')">
                                         {{ __('Inicio') }}
                                     </x-jet-responsive-nav-link>
