@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vacantefrm.css') }}">
 
     @livewireStyles
 
@@ -189,61 +190,90 @@
 
         <!-- Page Content -->
         <main>
-            <h1>Edita la vacante</h1>
+        <div class="prt1">
+            
+            <h1 class="t1">Esta pagina es para editar la vacante</h1>
+            <div class="formulario">
 
-            <form autocomplete="off" action="{{route('app.vacantesupdate',$vacante)}}" method="POST">
+            <h1 class="tEgresado">Editar vacante</h1>
+
+            <div class="linea"> </div>
+            <form class="formegresado" autocomplete="off" action="{{route('app.vacantesupdate',$vacante)}}" method="POST">
                 @csrf
                 @method('PUT')
+                <div class="campos">
+                <div class="sec1">
+                
 
-                <div>
+                <div class="campo">
                     <label>Puesto</label>
+                    <br />
                     <input type="text" name="puesto" value="{{($vacante->puesto)}}">
                 </div>
 
-                <div>
+                <div class="campo">
                     <label>Funciones o perfil del puesto</label>
+                    <br />
                     <textarea name="perfi_puesto" cols="30" rows="10">{{($vacante->perfi_puesto)}}</textarea>
                 </div>
 
-                <div> <label>Sueldo</label>
+                <div class="campo"> <label>Sueldo</label>
+                <br />
                     <input type="number" step="any"  name="sueldo" value="{{($vacante->sueldo)}}">
                 </div>
 
-                <div>
+                </div>
+                <div class="sec2">
+
+
+                <div class="campo">
                     <label>Ubicación</label>
+                    <br />
                     <input type="text" name="ubicacion" value="{{($vacante->ubicacion)}}">
 
                 </div>
 
-                <div> <label>Tipo de contrato</label>
+                <div class="campo"> <label>Tipo de contrato</label>
+                <br />
                     <input type="text" name="tipo_contrato" value="{{($vacante->tipo_contrato)}}">
                 </div>
 
-                <div>
+                <div class="campo">
                     <label>Horario</label>
+                    <br />
                     <input type="text" name="horario" value="{{($vacante->horario)}}">
                 </div>
 
-                <div>
+                <div class="campo">
                     <label>Correo al que se debe enviar los curriculum</label>
+                    <br />
                     <input type="text" name="correro_curriculum" value="{{($vacante->correro_curriculum)}}">
                 </div>
 
-                <div> <label>Persona de contacto</label>
+                <div class="campo"> <label>Persona de contacto</label>
+                <br />
                     <input type="text" name="persona_contacto" value="{{($vacante->persona_contacto)}}">
                 </div>
 
-                <div>
+                <div class="campo">
                     <label>Teléfono</label>
+                    <br />
                     <input type="number" name="telefono" value="{{($vacante->telefono)}}">
 
                 </div>
-                <button type="submit">Editar Vacante</button>
-
+                </div>
+                </div>
+                <div class="centrar-btn">
+                <button id="btn-agregar" type="submit">Editar Vacante</button>
+                </div>
 
 
 
             </form>
+            </div>
+            </div>
+            </div>
+            </div>
         </main>
     </div>
 
