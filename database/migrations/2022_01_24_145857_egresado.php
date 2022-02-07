@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class Egresado extends Migration
 {
@@ -39,6 +40,7 @@ class Egresado extends Migration
             $table->string('vehiculo')->default('no');
             $table->text('email');
             $table->integer('experiencia');
+            $table->string('file')->nullable();
             $table->text('area_tecnica_trabajo');
             $table->timestamps();
 

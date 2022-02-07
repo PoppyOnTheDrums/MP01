@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\egresado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\empresa;
+use App\Models\User;
 use App\Models\vacante;
 use Facade\Ignition\QueryRecorder\Query;
 
@@ -19,22 +21,19 @@ class VacanteController extends Controller
     {
         $empresa = new empresa();
         $user_id = Auth::user()->id;
-        $empresa_ = empresa::find($user_id);
+        $empresa = empresa::where('user_id', $user_id)->first();
 
-        if(empresa::find($user_id)){
+        if (empresa::where('user_id', $user_id)->exists()) {
 
-            $empresa_id = $empresa_->id;
+            $empresa_id = $empresa->id;
             $vacante = vacante::where('empresa_id', '=', $empresa_id)->get();
-            
 
-            return view('app.vacante',compact('vacante'));
-   
-        }else{
+
+            return view('app.vacante', compact('vacante'));
+        } else {
 
             return view('app.home');
-
         }
-
     }
 
     /**
@@ -48,14 +47,12 @@ class VacanteController extends Controller
         $empresa = new empresa();
         $user_id = Auth::user()->id;
 
-        if(empresa::find($user_id)){
+        if (empresa::where('user_id', $user_id)->exists()) {
 
             return view('app.vacantecreate');;
-   
-        }else{
+        } else {
 
             return view('app.home');
-
         }
     }
 
@@ -67,17 +64,31 @@ class VacanteController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+
+            'puesto' => 'required',
+            'perfi_puesto' => 'required',
+            'sueldo' => 'required',
+            'ubicacion' => 'required',
+            'tipo_contrato' => 'required',
+            'horario' => 'required',
+            'correro_curriculum' => 'required',
+            'telefono' => 'required',
+            'persona_contacto' => 'required',
+
+
+        ]);
         $vacante = new vacante();
         $empresa = new empresa();
         $user_id = Auth::user()->id;
-        $empresa = empresa::find($user_id);
+        $empresa = empresa::where('user_id', $user_id)->first();
 
         $nombre = $empresa->nombre;
         $id = $empresa->id;
-        
+
         $vacante->empresa_id = $id;
-        $vacante->nombre = $nombre; 
-        $vacante->user_id = $user_id;
+        $vacante->nombre = $nombre;
         $vacante->puesto = $request->puesto;
         $vacante->perfi_puesto = $request->perfi_puesto;
         $vacante->sueldo = $request->sueldo;
@@ -101,7 +112,6 @@ class VacanteController extends Controller
      */
     public function show($id)
     {
-
     }
 
     /**
@@ -113,7 +123,6 @@ class VacanteController extends Controller
     public function edit(vacante $vacante)
     {
         return view('app.vacanteedit', compact('vacante'));
-        
     }
 
     /**
@@ -127,8 +136,45 @@ class VacanteController extends Controller
     {
 
         $vacante =  vacante::find($id);
+        $user_id = Auth::user()->id;
+        $busqueda = $request->user_id;
 
-        $vacante->puesto = $request->puesto;
+        $request->validate([
+
+            'puesto' => 'required',
+            'perfi_puesto' => 'required',
+            'sueldo' => 'required',
+            'ubicacion' => 'required',
+            'tipo_contrato' => 'required',
+            'horario' => 'required',
+            'correro_curriculum' => 'required',
+            'telefono' => 'required',
+            'persona_contacto' => 'required',
+
+
+        ]);
+
+        if (egresado::where('id', $busqueda)->exists()) {
+
+            $vacante->puesto = $request->puesto;
+            $vacante->perfi_puesto = $request->perfi_puesto;
+            $vacante->sueldo = $request->sueldo;
+            $vacante->ubicacion = $request->ubicacion;
+            $vacante->tipo_contrato = $request->tipo_contrato;
+            $vacante->horario = $request->horario;
+            $vacante->correro_curriculum = $request->correro_curriculum;
+            $vacante->telefono = $request->telefono;
+            $vacante->persona_contacto = $request->persona_contacto;
+            $vacante->user_id = $request->user_id;
+
+            $vacante->update();
+
+            return view('app.vacanteedit',  compact('vacante'));
+        } else {
+            return view('app.vacanteedit', compact('vacante'));
+        }
+
+ /*        $vacante->puesto = $request->puesto;
         $vacante->perfi_puesto = $request->perfi_puesto;
         $vacante->sueldo = $request->sueldo;
         $vacante->ubicacion = $request->ubicacion;
@@ -137,10 +183,11 @@ class VacanteController extends Controller
         $vacante->correro_curriculum = $request->correro_curriculum;
         $vacante->telefono = $request->telefono;
         $vacante->persona_contacto = $request->persona_contacto;
+        $vacante->user_id = $request->user_id;
 
         $vacante->update();
 
-        return redirect()->route('app.home');
+        return redirect()->route('app.home'); */
     }
 
     /**

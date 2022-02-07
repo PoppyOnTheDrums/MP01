@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\egresado;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class EgresadoFormController extends Controller
 {
@@ -20,9 +21,10 @@ class EgresadoFormController extends Controller
         $user_id = Auth::user()->id;
 
 
-        if (egresado::find($user_id)) {
+        if (egresado::where('user_id', $user_id)->exists()) {
             $user_id = Auth::user()->id;
-            $egresado = egresado::find($user_id);
+
+            $egresado = egresado::where('user_id', '=', $user_id)->first();
 
             return view('app.egresadoedit', compact('egresado'));
         } else {
@@ -76,6 +78,7 @@ class EgresadoFormController extends Controller
             'email' => 'required',
             'experiencia' => 'required',
             'area_tecnica_trabajo' => 'required',
+            'file.*' => 'required|file|mimes:doc,docx,pdf|max:204800',
 
 
         ]);
@@ -85,6 +88,14 @@ class EgresadoFormController extends Controller
         }
         if ($request->vehiculo) {
             $egresado->vehiculo = $request->vehiculo;
+        }
+        if($request->file()){
+
+                $file = $request->file('file');
+                $fileName = time().'_'.$request->file->getClientOriginalName();
+                $file->move('uploads/productos/', $fileName);
+                $egresado->file = $fileName;
+
         }
 
         $egresado->user_id = $user_id;
@@ -148,12 +159,14 @@ class EgresadoFormController extends Controller
      */
     public function update(Request $request)
     {
+    
         $user_id = Auth::user()->id;
-        $egresado = egresado::find($user_id);
+        $egresado = egresado::where('user_id', '=', $user_id)->first();
         
         
         $request->validate([
 
+            'file.*' => 'required|file|mimes:doc,docx,pdf|max:204800',
             'graduacion' => 'required',
             'institucion_educativa' => 'required',
             'curso' => 'required',
@@ -180,6 +193,8 @@ class EgresadoFormController extends Controller
 
         ]);
 
+ 
+
         if ($request->licencia) {
             $egresado->licencia = $request->licencia;
         }
@@ -187,7 +202,23 @@ class EgresadoFormController extends Controller
             $egresado->vehiculo = $request->vehiculo;
         }
 
-        $egresado->user_id = $user_id;
+        if ($request->hasFile('file')) { 
+    
+            $destination = 'uploads/productos/'.$egresado->file;
+            if (file::exists($destination)) 
+            {
+                file::delete($destination);
+            }
+            $file = $request->file('file');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/productos/', $filename);
+            $egresado->file = $filename;
+            
+            
+        }
+
+
         $egresado->graduacion = $request->graduacion;
         $egresado->institucion_educativa = $request->institucion_educativa;
         $egresado->curso = $request->curso;

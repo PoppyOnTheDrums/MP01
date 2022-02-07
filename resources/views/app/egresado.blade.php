@@ -198,7 +198,7 @@
 
                         <h1 class="tEgresado">Egresado</h1>
                         <div class="linea"> </div>
-                        <form class="formegresado" autocomplete="off" action="{{route('app.egresadostore')}}" method="POST">
+                        <form class="formegresado" autocomplete="off" action="{{route('app.egresadostore')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="campos">
                                 <div class="sec1">
@@ -267,7 +267,17 @@
                                         <br>
                                         <div class="espacio"></div>
 
-                                        <input class="caja" type="text" name="carrera_tecnica">
+                                        <select name="carrera_tecnica">
+                                                <option value="diseño">Corte y Patronaje</option>
+                                                <option value="informatica">Desarrollo de Aplicaciones Informáticas</option>
+                                                <option value="automotriz">Electromecánica De vehiculos</option>
+                                                <option value="ebanisteria">Ensanblaje de mueble</option>
+                                                <option value="electronica">Equipos electrónicos</option>
+                                                <option value="contabilidad">Gestión Administrativa y Tributaria</option>
+                                                <option value="electricidad">Instalaciones eléctricas</option>
+                                                <option value="industrial">Mecanizado</option>
+                                        </select>
+
                                         @error('carrera_tecnica')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>
@@ -516,6 +526,19 @@
 
                                         <input class="caja" type="text" name="area_tecnica_trabajo">
                                         @error('area_tecnica_trabajo')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
+                                    </div>
+
+                                    
+                                    <div class="campo">
+                                        <label for="nombre">Curriculum Vitae</label>
+                                        <br>
+                                        <div class="espacio"></div>
+
+                                        <input class="caja" type="file" name="file">
+                                        @error('file')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>
                                         @enderror

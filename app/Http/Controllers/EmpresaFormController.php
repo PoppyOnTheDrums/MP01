@@ -19,11 +19,8 @@ class EmpresaFormController extends Controller
         //error por arreglar find ID
         
         $user_id = Auth::user()->id;
-    
-        $encontrar = empresa::find($user_id);
 
-
-        if ($encontrar) {
+        if (empresa::where('user_id', $user_id)->exists()) {
             $user_id = Auth::user()->id;
             $empresa = empresa::where('user_id', '=', $user_id)->first();
 

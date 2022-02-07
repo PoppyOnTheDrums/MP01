@@ -23,7 +23,7 @@ class Empresa extends Migration
             $table->string('alcance');
             $table->text('actividad_economica');
             $table->text('industria');
-            $table->integer('tamano');
+            $table->text('tamano');
             $table->text('direccion');
             $table->text('sector');
             $table->text('seccion');

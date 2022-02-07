@@ -446,6 +446,14 @@
                         <br>
                         @enderror
                     </div>
+                    <div>
+                        <label for="nombre">Curriculum Vitae</label>
+                        <input class="caja" type="file" name="file">
+                        @error('file')
+                        <small class="text-danger">*Campo requerido</small>
+                        <br>
+                        @enderror
+                    </div>
 
                     <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Editar</button>
 

@@ -104,7 +104,7 @@
                                     </x-jet-dropdown-link>
                                     @endcan
                                     @can('empresa.all')
-                                    <x-jet-dropdown-link href="{{ route('app.empresaform') }}">
+                                    <x-jet-dropdown-link href="{{ route('app.vacantes') }}">
                                         {{ __('Vacante') }}
                                     </x-jet-dropdown-link>
                                     @endcan
@@ -190,86 +190,126 @@
 
         <!-- Page Content -->
         <main>
-        <div class="prt1">
-                
-            <h1 class="t1">Esta es la pagina se crean las vacantes</h1>
-            <div>
+            <div class="prt1">
+
+                <h1 class="t1">Esta es la pagina se crean las vacantes</h1>
+                <div>
                     <div class="formulario">
 
-                    <h1 class="tEgresado">Vacante</h1>
+                        <h1 class="tEgresado">Vacante</h1>
                         <div class="linea"> </div>
 
-            <form class="formegresado" autocomplete="off" action="{{route('app.vacantesstore')}}" method="POST">
-                @csrf
-                <div class="campos">
-                <div class="sec1">
-                <div class="campo">
-                    <label>Puesto</label>
-                    <br />
-                    <input type="text" name="puesto">
-                </div>
+                        <form class="formegresado" autocomplete="off" action="{{route('app.vacantesstore')}}" method="POST">
+                            @csrf
+                            <div class="campos">
+                                <div class="sec1">
+                                    <div class="campo">
+                                        <label>Puesto</label>
+                                        <br />
+                                        <input type="text" name="puesto">
+                                        @error('puesto')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
+                                    </div>
 
-                <div class="campo">
-                    <label>Funciones o perfil del puesto</label>
-                    <br />
-                    <textarea name="perfi_puesto" cols="30" rows="10"></textarea>
-                </div>
+                                    <div class="campo">
+                                        <label>Funciones o perfil del puesto</label>
+                                        <br />
+                                        <textarea name="perfi_puesto" cols="30" rows="10"></textarea>
+                                        @error('perfi_puesto')
+                                        <br>
+                                        <small class="text-danger">*Campo requerido</small>
+                                    
+                                        @enderror
+                                    </div>
 
-                <div class="campo"> <label>Sueldo</label>
-                <br />
-                    <input type="number" step="any"  name="sueldo">
-                </div>
-                </div>
-                <div class="sec2">
-                <div class="campo">
-                    <label>Ubicación</label>
-                    <br />
-                    <input type="text" name="ubicacion">
+                                    <div class="campo"> <label>Sueldo</label>
+                                        <br />
+                                        <input type="number" step="any" name="sueldo">
+                                        @error('sueldo')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="sec2">
+                                    <div class="campo">
+                                        <label>Ubicación</label>
+                                        <br />
+                                        <input type="text" name="ubicacion">
+                                        @error('ubicacion')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
 
-                </div>
+                                    </div>
 
-                <div class="campo"> <label>Tipo de contrato</label>
-                <br />
-                    <input type="text" name="tipo_contrato">
-                </div>
+                                    <div class="campo"> <label>Tipo de contrato</label>
+                                        <br />
+                                        <select name="tipo_contrato">
+                                            <option value="temporal">Temporal</option>
+                                            <option value="fijo">Fijo</option>
+                                        </select>
+                                        @error('tipo_contrato')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
+                                    </div>
 
-                <div class="campo">
-                    <label>Horario</label>
-                    <br />
-                    <input type="text" name="horario">
-                </div>
+                                    <div class="campo">
+                                        <label>Horario</label>
+                                        <br />
+                                        <input type="text" name="horario">
+                                        @error('horario')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
+                                    </div>
 
-                <div class="campo">
-                    <label>Correo al que se debe enviar los curriculum</label>
-                    <br />
-                    <input type="text" name="correro_curriculum">
-                </div>
+                                    <div class="campo">
+                                        <label>Correo al que se debe enviar los curriculum</label>
+                                        <br />
+                                        <input type="email" name="correro_curriculum">
+                                        @error('correro_curriculum')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
+                                    </div>
 
-                <div class="campo"> <label>Persona de contacto</label>
-                <br />
-                    <input type="text" name="persona_contacto">
-                </div>
+                                    <div class="campo"> <label>Persona de contacto</label>
+                                        <br />
+                                        <input type="text" name="persona_contacto">
+                                        @error('persona_contacto')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
+                                    </div>
 
-                <div class="campo">
-                    <label>Teléfono</label>
-                    <br />
-                    <input type="number" name="telefono">
+                                    <div class="campo">
+                                        <label>Teléfono</label>
+                                        <br />
+                                        <input type="number" name="telefono">
+                                        @error('telefono')
+                                        <small class="text-danger">*Campo requerido</small>
+                                        <br>
+                                        @enderror
 
-                </div>
-                </div>
-                </div>
-                <div class="centrar-btn">
-                <button id="btn-agregar" type="submit">Crear Vacante</button>
-                </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="centrar-btn">
+                                <button id="btn-agregar" type="submit">Crear Vacante</button>
+                            </div>
 
-               
 
-            </form>
+
+                        </form>
+                    </div>
+                </div>
             </div>
-            </div>
-            </div>
-            </div>
-        </main>
+    </div>
+    </main>
 
     </div>
 

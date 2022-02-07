@@ -103,7 +103,7 @@
                                     </x-jet-dropdown-link>
                                     @endcan
                                     @can('empresa.all')
-                                    <x-jet-dropdown-link href="{{ route('app.empresaform') }}">
+                                    <x-jet-dropdown-link href="{{ route('app.vacantes') }}">
                                         {{ __('Vacante') }}
                                     </x-jet-dropdown-link>
                                     @endcan

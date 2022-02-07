@@ -296,7 +296,11 @@
                                         <label for="nombre">Tamaño</label>
                                         <br>
 
-                                        <input class="caja" type="number" name="tamano">
+                                        <select name="tamano">
+                                            <option value="grande">Grande</option>
+                                            <option value="mediana">Mediana</option>
+                                            <option value="pequena">Pequeña</option>
+                                        </select>
                                         @error('tamano')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>

@@ -104,7 +104,7 @@
                                     </x-jet-dropdown-link>
                                     @endcan
                                     @can('empresa.all')
-                                    <x-jet-dropdown-link href="{{ route('app.empresaform') }}">
+                                    <x-jet-dropdown-link href="{{ route('app.vacantes') }}">
                                         {{ __('Vacante') }}
                                     </x-jet-dropdown-link>
                                     @endcan
@@ -190,91 +190,137 @@
 
         <!-- Page Content -->
         <main>
-        <div class="prt1">
-            
-            <h1 class="t1">Esta pagina es para editar la vacante</h1>
-            <div class="formulario">
+            <div class="prt1">
 
-            <h1 class="tEgresado">Editar vacante</h1>
+                <h1 class="t1">Esta pagina es para editar la vacante</h1>
+                <div class="formulario">
 
-            <div class="linea"> </div>
-            <form class="formegresado" autocomplete="off" action="{{route('app.vacantesupdate',$vacante)}}" method="POST">
-                @csrf
-                @method('PUT')
-                <div class="campos">
-                <div class="sec1">
-                
+                    <h1 class="tEgresado">Editar vacante</h1>
 
-                <div class="campo">
-                    <label>Puesto</label>
-                    <br />
-                    <input type="text" name="puesto" value="{{($vacante->puesto)}}">
+                    <div class="linea"> </div>
+                    <form class="formegresado" autocomplete="off" action="{{route('app.vacantesupdate',$vacante)}}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="campos">
+                            <div class="sec1">
+
+
+                                <div class="campo">
+                                    <label>Puesto</label>
+                                    <br />
+                                    <input type="text" name="puesto" value="{{($vacante->puesto)}}">
+                                    @error('puesto')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+                                </div>
+
+                                <div class="campo">
+                                    <label>Funciones o perfil del puesto</label>
+                                    <br />
+                                    <textarea name="perfi_puesto" cols="30" rows="10">{{($vacante->perfi_puesto)}}</textarea>
+                                    @error('perfi_puesto')
+                                    <br>
+                                    <small class="text-danger">*Campo requerido</small>
+                                    @enderror
+                                </div>
+
+                                <div class="campo"> <label>Sueldo</label>
+                                    <br />
+                                    <input type="number" step="any" name="sueldo" value="{{($vacante->sueldo)}}">
+                                    @error('sueldo')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <div class="sec2">
+
+
+                                <div class="campo">
+                                    <label>Ubicación</label>
+                                    <br />
+                                    <input type="text" name="ubicacion" value="{{($vacante->ubicacion)}}">
+                                    @error('ubicacion')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+
+                                </div>
+
+                                <div class="campo"> <label>Tipo de contrato</label>
+                                    <br />
+                                    <select name="tipo_contrato">
+                                        <option value="temporal">Temporal</option>
+                                        <option value="fijo">Fijo</option>
+                                    </select>
+                                    <span>Actual: {{($vacante->tipo_contrato)}}</span>
+                                    @error('tipo_contrato')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+                                </div>
+
+                                <div class="campo">
+                                    <label>Horario</label>
+                                    <br />
+                                    <input type="text" name="horario" value="{{($vacante->horario)}}">
+                                    @error('horario')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+                                </div>
+
+                                <div class="campo">
+                                    <label>Correo al que se debe enviar los curriculum</label>
+                                    <br />
+                                    <input type="email" name="correro_curriculum" value="{{($vacante->correro_curriculum)}}">
+                                    @error('correro_curriculum')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+                                </div>
+
+                                <div class="campo"> <label>Persona de contacto</label>
+                                    <br />
+                                    <input type="text" name="persona_contacto" value="{{($vacante->persona_contacto)}}">
+                                    @error('persona_contacto')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+                                </div>
+
+                                <div class="campo">
+                                    <label>Teléfono</label>
+                                    <br />
+                                    <input type="number" name="telefono" value="{{($vacante->telefono)}}">
+                                    @error('telefono')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+
+                                </div>
+                                <div class="campo">
+                                    <label>Asignar Egresado</label>
+                                    <br />
+                                    <input type="number" name="user_id" value="{{($vacante->user_id)}}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="centrar-btn">
+                            <button id="btn-agregar" type="submit">Editar Vacante</button>
+                        </div>
+
+
+
+                    </form>
                 </div>
-
-                <div class="campo">
-                    <label>Funciones o perfil del puesto</label>
-                    <br />
-                    <textarea name="perfi_puesto" cols="30" rows="10">{{($vacante->perfi_puesto)}}</textarea>
-                </div>
-
-                <div class="campo"> <label>Sueldo</label>
-                <br />
-                    <input type="number" step="any"  name="sueldo" value="{{($vacante->sueldo)}}">
-                </div>
-
-                </div>
-                <div class="sec2">
-
-
-                <div class="campo">
-                    <label>Ubicación</label>
-                    <br />
-                    <input type="text" name="ubicacion" value="{{($vacante->ubicacion)}}">
-
-                </div>
-
-                <div class="campo"> <label>Tipo de contrato</label>
-                <br />
-                    <input type="text" name="tipo_contrato" value="{{($vacante->tipo_contrato)}}">
-                </div>
-
-                <div class="campo">
-                    <label>Horario</label>
-                    <br />
-                    <input type="text" name="horario" value="{{($vacante->horario)}}">
-                </div>
-
-                <div class="campo">
-                    <label>Correo al que se debe enviar los curriculum</label>
-                    <br />
-                    <input type="text" name="correro_curriculum" value="{{($vacante->correro_curriculum)}}">
-                </div>
-
-                <div class="campo"> <label>Persona de contacto</label>
-                <br />
-                    <input type="text" name="persona_contacto" value="{{($vacante->persona_contacto)}}">
-                </div>
-
-                <div class="campo">
-                    <label>Teléfono</label>
-                    <br />
-                    <input type="number" name="telefono" value="{{($vacante->telefono)}}">
-
-                </div>
-                </div>
-                </div>
-                <div class="centrar-btn">
-                <button id="btn-agregar" type="submit">Editar Vacante</button>
-                </div>
-
-
-
-            </form>
             </div>
-            </div>
-            </div>
-            </div>
-        </main>
+    </div>
+    </div>
+    </main>
     </div>
 
     @stack('modals')
