@@ -373,10 +373,10 @@
                         window.onload = function() {
                             setInterval(function() {
                                 document.getElementById('s2').click();
-                        }, 5000);
+                        }, 8000);
                         setInterval(function() {
                                 document.getElementById('s1').click();
-                        }, 12000);
+                        }, 16000);
                         };
                     </script>
 
