@@ -101,7 +101,7 @@ class VacanteController extends Controller
 
         $vacante->save();
 
-        return redirect()->route('app.home');
+        return redirect()->back()->with('message', 'La vacante se creo correctamente!');
     }
 
     /**
@@ -154,7 +154,28 @@ class VacanteController extends Controller
 
         ]);
 
-        if (egresado::where('id', $busqueda)->exists()) {
+        if ($busqueda) {
+
+            if (egresado::where('id', $busqueda)->exists()) {
+
+                $vacante->puesto = $request->puesto;
+                $vacante->perfi_puesto = $request->perfi_puesto;
+                $vacante->sueldo = $request->sueldo;
+                $vacante->ubicacion = $request->ubicacion;
+                $vacante->tipo_contrato = $request->tipo_contrato;
+                $vacante->horario = $request->horario;
+                $vacante->correro_curriculum = $request->correro_curriculum;
+                $vacante->telefono = $request->telefono;
+                $vacante->persona_contacto = $request->persona_contacto;
+                $vacante->user_id = $request->user_id;
+
+                $vacante->update();
+
+                return redirect()->back()->with('message', 'La vacante se Actualizo correctamente!');
+            } else {
+                return redirect()->back()->with('message', 'El egresado que quiere asignar no existe!');
+            }
+        } else {
 
             $vacante->puesto = $request->puesto;
             $vacante->perfi_puesto = $request->perfi_puesto;
@@ -165,16 +186,13 @@ class VacanteController extends Controller
             $vacante->correro_curriculum = $request->correro_curriculum;
             $vacante->telefono = $request->telefono;
             $vacante->persona_contacto = $request->persona_contacto;
-            $vacante->user_id = $request->user_id;
 
             $vacante->update();
 
-            return view('app.vacanteedit',  compact('vacante'));
-        } else {
-            return view('app.vacanteedit', compact('vacante'));
+            return redirect()->back()->with('message', 'La vacante se Actualizo correctamente!');
         }
 
- /*        $vacante->puesto = $request->puesto;
+        /*        $vacante->puesto = $request->puesto;
         $vacante->perfi_puesto = $request->perfi_puesto;
         $vacante->sueldo = $request->sueldo;
         $vacante->ubicacion = $request->ubicacion;

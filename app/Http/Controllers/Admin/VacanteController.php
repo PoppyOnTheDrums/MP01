@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\egresado;
 use App\Models\vacante;
 use Illuminate\Http\Request;
 
@@ -30,25 +31,30 @@ class VacanteController extends Controller
 
     public function show(int $id)
     {
-             
+
         $vacante = vacante::find($id);
 
 
-        return view('admin.vacanteinfo',compact('vacante'));
-
+        return view('admin.vacanteinfo', compact('vacante'));
     }
 
     public function update(Request $request, int $id)
     {
+
         $vacante =  vacante::find($id);
+        $busqueda = $request->user_id;
 
-        $vacante->estado = $request->estado;
-        $vacante->user_id = $request->user_id;
-
-        $vacante->update();
-
-        return view('admin.vacanteinfo',compact('vacante'));
+        if (egresado::where('id', $busqueda)->exists()) {
 
 
+            $vacante->estado = $request->estado;
+            $vacante->user_id = $request->user_id;
+
+            $vacante->update();
+        } else {
+            return redirect()->back()->with('message', 'El egresado al cual le asigno la vacante no existe!');
+        }
+
+        return redirect()->back()->with('message', 'La informacion se a actualizado correctamente!');
     }
 }

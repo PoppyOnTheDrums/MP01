@@ -190,6 +190,9 @@
 
         <!-- Page Content -->
         <main>
+            @if(session()->has('message'))
+            <div>{{session()->get('message')}}</div>
+            @endif
             <div class="prt1">
 
                 <h1 class="t1">Esta pagina es para editar la vacante</h1>

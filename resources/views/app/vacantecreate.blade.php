@@ -193,6 +193,9 @@
             <div class="prt1">
 
                 <h1 class="t1">Esta es la pagina se crean las vacantes</h1>
+                @if(session()->has('message'))
+                <div>{{session()->get('message')}}</div>
+                @endif
                 <div>
                     <div class="formulario">
 
@@ -220,7 +223,7 @@
                                         @error('perfi_puesto')
                                         <br>
                                         <small class="text-danger">*Campo requerido</small>
-                                    
+
                                         @enderror
                                     </div>
 

@@ -125,7 +125,7 @@ class EgresadoFormController extends Controller
 
         $egresado->save();
 
-        return redirect()->route('app.home');
+        return redirect()->back()->with('message', 'Tu informacion se agrego correctamente!');
     }
 
     /**
@@ -244,7 +244,7 @@ class EgresadoFormController extends Controller
 
         $egresado->update();
 
-        return redirect()->route('app.egresadoform');
+        return redirect()->back()->with('message', 'Tu informacion se actualizo correctamente!');
     }
 
     /**

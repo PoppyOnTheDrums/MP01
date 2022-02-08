@@ -190,6 +190,9 @@
         <!-- Page Content -->
         <main>
             aqui se editara el formularo :D:D:D:D:D
+            @if(session()->has('message'))
+            <div>{{session()->get('message')}}</div>
+            @endif
             <div>
                 <form autocomplete="off" action="{{route('app.empresaupdate')}}" method="POST">
                     @csrf
@@ -218,6 +221,7 @@
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>
+                            <span>Actual: {{$empresa->visibilidad}}</span>
                             @error('visibilidad')
                             <small class="text-danger">*Campo requerido</small>
                             <br>
@@ -232,6 +236,7 @@
                                 <option value="Si">Si</option>
                                 <option value="No">No</option>
                             </select>
+                            <span>Actual: {{$empresa->dp_formacion}}</span>
                             @error('dp_formacion')
                             <small class="text-danger">*Campo requerido</small>
                             <br>
@@ -245,6 +250,7 @@
                                 <option value="Nacional/Local">Nacional/Local</option>
                                 <option value="Multinacional">Multinacional</option>
                             </select>
+                            <span>Actual: {{$empresa->alcance}}</span>
                             @error('alcance')
                             <small class="text-danger">*Campo requerido</small>
                             <br>
@@ -271,7 +277,14 @@
                     </div>
                     <div>
                         <label for="nombre">Tamaño</label>
-                        <input type="number" name="tamano" value="{{$empresa->tamano}}">
+                        <br>
+
+                        <select name="tamano">
+                            <option value="grande">Grande</option>
+                            <option value="mediana">Mediana</option>
+                            <option value="pequena">Pequeña</option>
+                        </select>
+                        <span>Actual: {{$empresa->tamano}}</span>
                         @error('tamano')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
@@ -346,6 +359,7 @@
                                 <option value="Santo Domingo">Santo Domingo</option>
                                 <option value="Valverde">Valverde</option>
                             </select>
+                            <span>Actual: {{$empresa->provincia}}</span>
                             @error('provincia')
                             <small class="text-danger">*Campo requerido</small>
                             <br>

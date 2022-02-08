@@ -10,6 +10,9 @@
 @section('content')
 <h3>Aqui debe aparacer toda la informacion de la vacante seleccionada :D</h3>
 
+@if(session()->has('message'))
+<div>{{session()->get('message')}}</div>
+@endif
 <div class="container">
     <label for="">Nombre</label>
     <p>{{$vacante->nombre}}</p>
@@ -20,14 +23,14 @@
 
         <div>
             <select name="estado">
-                <option value="{{$vacante->estado}}">{{$vacante->estado}}</option>
                 <option value="abierta">Abierta</option>
                 <option value="cerrada">Cerrada</option>
             </select>
+            <span>Estado Actual: {{$vacante->estado}}</span>
         </div>
         <div>
             <label for="">Egresado</label>
-            <input type="text" name="user_id" value="{{$vacante->user_id}}">
+            <input type="number" name="user_id" value="{{$vacante->user_id}}">
         </div>
         <button type="submit">Actualizar</button>
     </form>

@@ -96,7 +96,7 @@ class EmpresaFormController extends Controller
 
         $empresa->save();
 
-        return redirect()->route('app.home');
+        return redirect()->back()->with('message', 'Tu informacion se agrego correctamente!');
     }
 
     /**
@@ -134,7 +134,7 @@ class EmpresaFormController extends Controller
     public function update(Request $request)
     {
         $user_id = Auth::user()->id;
-        $empresa = empresa::find($user_id);
+        $empresa = empresa::where('user_id', '=', $user_id)->first();
 
 
         $request->validate([
@@ -179,7 +179,7 @@ class EmpresaFormController extends Controller
 
         $empresa->update();
 
-        return redirect()->route('app.empresaform');
+        return redirect()->back()->with('message', 'Tu informacion se actualizo correctamente!');
     }
 
     /**
