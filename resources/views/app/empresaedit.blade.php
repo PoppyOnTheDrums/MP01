@@ -92,6 +92,16 @@
                                     @endcan
 
                                     <!-- Authentication -->
+                                    @can('admin.home')
+                                    <x-jet-dropdown-link href="{{ route('app.vacanteshow') }}">
+                                        {{ __('Vacantes') }}
+                                    </x-jet-dropdown-link>
+                                    @endcan
+                                    @can('admin.home')
+                                    <x-jet-dropdown-link href="{{ route('app.egresadoshow') }}">
+                                        {{ __('Egresados') }}
+                                    </x-jet-dropdown-link>
+                                    @endcan
                                     @can('egresado.all')
                                     <x-jet-dropdown-link href="{{ route('app.egresadoform') }}">
                                         {{ __('IDI Egresado') }}
@@ -191,7 +201,12 @@
         <main>
             aqui se editara el formularo :D:D:D:D:D
             @if(session()->has('message'))
+            
             <div>{{session()->get('message')}}</div>
+            <script>
+                alert("klk wawa");
+
+            </script>
             @endif
             <div>
                 <form autocomplete="off" action="{{route('app.empresaupdate')}}" method="POST">

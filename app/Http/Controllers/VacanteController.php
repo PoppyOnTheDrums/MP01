@@ -110,8 +110,11 @@ class VacanteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
+        $vacante = vacante::all();
+
+        return view('app.vacanteshow', compact('vacante'));
     }
 
     /**

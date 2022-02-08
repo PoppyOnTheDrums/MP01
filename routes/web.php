@@ -70,3 +70,7 @@ Route::post('Vacantes/store',[VacanteController::class, 'store'])->middleware('c
 Route::get('Vacantes/{vacante}',[VacanteController::class, 'edit'])->middleware('can:empresa.all')->name('app.vacantesedit');
 
 Route::put('Vacantes/{vacante}',[VacanteController::class, 'update'])->middleware('can:empresa.all')->name('app.vacantesupdate');
+
+Route::get('Egresados/Vacantes',[VacanteController::class, 'show'])->name('app.vacanteshow');
+
+Route::get('Empresa/Egresados',[EgresadoFormController::class, 'show'])->name('app.egresadoshow');

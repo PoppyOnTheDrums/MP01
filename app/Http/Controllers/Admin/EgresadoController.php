@@ -40,4 +40,5 @@ class EgresadoController extends Controller
 
 
     }
+    
 }
