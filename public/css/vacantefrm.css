@@ -117,3 +117,17 @@ background: linear-gradient(351deg, rgba(4,4,124,1) 0%, rgba(0,121,255,1) 100%);
   align-items: center;
   
 }
+
+.cajagrande {
+  
+  width: 90%;
+  border-radius: 2px;
+
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

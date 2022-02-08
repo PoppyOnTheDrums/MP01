@@ -219,7 +219,7 @@
                                     <div class="campo">
                                         <label>Puesto</label>
                                         <br />
-                                        <input type="text" name="puesto">
+                                        <input class="caja" type="text" name="puesto">
                                         @error('puesto')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>
@@ -229,7 +229,7 @@
                                     <div class="campo">
                                         <label>Funciones o perfil del puesto</label>
                                         <br />
-                                        <textarea name="perfi_puesto" cols="30" rows="10"></textarea>
+                                        <textarea class="cajagrande" name="perfi_puesto" cols="30" rows="10"></textarea>
                                         @error('perfi_puesto')
                                         <br>
                                         <small class="text-danger">*Campo requerido</small>
@@ -239,7 +239,7 @@
 
                                     <div class="campo"> <label>Sueldo</label>
                                         <br />
-                                        <input type="number" step="any" name="sueldo">
+                                        <input class="caja" type="number" step="any" name="sueldo">
                                         @error('sueldo')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>
@@ -250,7 +250,7 @@
                                     <div class="campo">
                                         <label>Ubicación</label>
                                         <br />
-                                        <input type="text" name="ubicacion">
+                                        <input class="caja" type="text" name="ubicacion">
                                         @error('ubicacion')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>
@@ -273,7 +273,7 @@
                                     <div class="campo">
                                         <label>Horario</label>
                                         <br />
-                                        <input type="text" name="horario">
+                                        <input class="caja" type="text" name="horario">
                                         @error('horario')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>
@@ -283,7 +283,7 @@
                                     <div class="campo">
                                         <label>Correo al que se debe enviar los curriculum</label>
                                         <br />
-                                        <input type="email" name="correro_curriculum">
+                                        <input class="caja" type="email" name="correro_curriculum">
                                         @error('correro_curriculum')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>
@@ -292,7 +292,7 @@
 
                                     <div class="campo"> <label>Persona de contacto</label>
                                         <br />
-                                        <input type="text" name="persona_contacto">
+                                        <input class="caja" type="text" name="persona_contacto">
                                         @error('persona_contacto')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>
@@ -302,7 +302,7 @@
                                     <div class="campo">
                                         <label>Teléfono</label>
                                         <br />
-                                        <input type="number" name="telefono">
+                                        <input class="caja" type="number" name="telefono">
                                         @error('telefono')
                                         <small class="text-danger">*Campo requerido</small>
                                         <br>

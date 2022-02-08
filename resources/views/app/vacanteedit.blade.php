@@ -201,11 +201,22 @@
         <!-- Page Content -->
         <main>
             @if(session()->has('message'))
-            <div>{{session()->get('message')}}</div>
+            
+            <script>
+                alert("La información se ha actualizado correctamente");
+                window.location.href = "{{ route('app.vacantes') }}";
+            </script>
+            @elseif(session()->has('message2'))
+              
+            <script>
+                alert("El egresado que quiere asignar no existe");
+            </script>
+
+
             @endif
             <div class="prt1">
 
-                <h1 class="t1">Esta pagina es para editar la vacante</h1>
+                <h1 class="t1">En esta página se editará la información de la vacante</h1>
                 <div class="formulario">
 
                     <h1 class="tEgresado">Editar vacante</h1>
@@ -221,7 +232,7 @@
                                 <div class="campo">
                                     <label>Puesto</label>
                                     <br />
-                                    <input type="text" name="puesto" value="{{($vacante->puesto)}}">
+                                    <input class="caja" type="text" name="puesto" value="{{($vacante->puesto)}}">
                                     @error('puesto')
                                     <small class="text-danger">*Campo requerido</small>
                                     <br>
@@ -231,7 +242,7 @@
                                 <div class="campo">
                                     <label>Funciones o perfil del puesto</label>
                                     <br />
-                                    <textarea name="perfi_puesto" cols="30" rows="10">{{($vacante->perfi_puesto)}}</textarea>
+                                    <textarea class="cajagrande" name="perfi_puesto" cols="30" rows="10">{{($vacante->perfi_puesto)}}</textarea>
                                     @error('perfi_puesto')
                                     <br>
                                     <small class="text-danger">*Campo requerido</small>
@@ -240,7 +251,7 @@
 
                                 <div class="campo"> <label>Sueldo</label>
                                     <br />
-                                    <input type="number" step="any" name="sueldo" value="{{($vacante->sueldo)}}">
+                                    <input class="caja" type="number" step="any" name="sueldo" value="{{($vacante->sueldo)}}">
                                     @error('sueldo')
                                     <small class="text-danger">*Campo requerido</small>
                                     <br>
@@ -254,7 +265,7 @@
                                 <div class="campo">
                                     <label>Ubicación</label>
                                     <br />
-                                    <input type="text" name="ubicacion" value="{{($vacante->ubicacion)}}">
+                                    <input class="caja" type="text" name="ubicacion" value="{{($vacante->ubicacion)}}">
                                     @error('ubicacion')
                                     <small class="text-danger">*Campo requerido</small>
                                     <br>
@@ -278,7 +289,7 @@
                                 <div class="campo">
                                     <label>Horario</label>
                                     <br />
-                                    <input type="text" name="horario" value="{{($vacante->horario)}}">
+                                    <input class="caja" type="text" name="horario" value="{{($vacante->horario)}}">
                                     @error('horario')
                                     <small class="text-danger">*Campo requerido</small>
                                     <br>
@@ -288,7 +299,7 @@
                                 <div class="campo">
                                     <label>Correo al que se debe enviar los curriculum</label>
                                     <br />
-                                    <input type="email" name="correro_curriculum" value="{{($vacante->correro_curriculum)}}">
+                                    <input class="caja" type="email" name="correro_curriculum" value="{{($vacante->correro_curriculum)}}">
                                     @error('correro_curriculum')
                                     <small class="text-danger">*Campo requerido</small>
                                     <br>
@@ -297,7 +308,7 @@
 
                                 <div class="campo"> <label>Persona de contacto</label>
                                     <br />
-                                    <input type="text" name="persona_contacto" value="{{($vacante->persona_contacto)}}">
+                                    <input class="caja" type="text" name="persona_contacto" value="{{($vacante->persona_contacto)}}">
                                     @error('persona_contacto')
                                     <small class="text-danger">*Campo requerido</small>
                                     <br>
@@ -307,7 +318,7 @@
                                 <div class="campo">
                                     <label>Teléfono</label>
                                     <br />
-                                    <input type="number" name="telefono" value="{{($vacante->telefono)}}">
+                                    <input class="caja" type="number" name="telefono" value="{{($vacante->telefono)}}">
                                     @error('telefono')
                                     <small class="text-danger">*Campo requerido</small>
                                     <br>

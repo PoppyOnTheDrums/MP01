@@ -201,12 +201,16 @@
         <main>
             <div class="prt1">
                 <div class="formulario">
+                    <div class="lado">
                     <h1 class="t1">Esta es la pagina para vizualisar las vacantes</h1>
 
                     <div class="wrapper-t2">
-                        <a class="t2" href="{{ route('app.vacantescreate') }}">Crea una Vacante</a>
+                        <a>
+                        <a class="t2" href="{{ route('app.vacantescreate') }}">Crea una Vacante<div class="plus"></div></a>
+                        
+                        </a>
                     </div>
-
+</div>
 
                     <h1 class="t3">Vacantes creadas</h1>
 
@@ -221,23 +225,23 @@
                             <h2 id="f" class="t-title"></h2>
                         </div>
 
-                        <div class="rows">
+                        
 
                             @foreach($vacante as $vacante)
-
+                            <div class="rows">
 
                             <h2 class="t-row">{{$vacante->nombre}}</h2>
                             <h2 class="t-row">{{$vacante->puesto}}</h2>
                             <h2 class="t-row">{{$vacante->perfi_puesto}}</h2>
-                            <h2 class="t-row">{{$vacante->sueldo}}</h2>
+                            <h2 class="t-row">{{$vacante->sueldo}} $</h2>
                             <h2 class="t-row">{{$vacante->ubicacion}}</h2>
                             <h2 class="t-row">{{$vacante->tipo_contrato}}</h2>
 
 
                             <a id="edit-btn" class="t-row" href="{{ route('app.vacantesedit', $vacante) }}">editar</a>
-
+                            </div>
                             @endforeach
-                        </div>
+                        
                     </div>
                 </div>
             </div>

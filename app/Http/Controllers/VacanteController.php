@@ -176,7 +176,7 @@ class VacanteController extends Controller
 
                 return redirect()->back()->with('message', 'La vacante se Actualizo correctamente!');
             } else {
-                return redirect()->back()->with('message', 'El egresado que quiere asignar no existe!');
+                return redirect()->back()->with('message2', 'El egresado que quiere asignar no existe!');
             }
         } else {
 

@@ -259,13 +259,13 @@
                     <a href="#">Read More</a>
                 </div>
                 <div class="media-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://es-la.facebook.com/IPISASDB/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
                 <div class="slider-navigation">
-                    <div class="nav-btn active"></div>
-                    <div class="nav-btn"></div>
+                    <div id="s1" class="nav-btn active"></div>
+                    <div id="s2" class="nav-btn"></div>
               <!--       <div class="nav-btn"></div>
                     <div class="nav-btn"></div>
                     <div class="nav-btn"></div> -->
@@ -275,13 +275,13 @@
             <div class="seccion1">
                 <div class="contenedor1">
                     <div class="caja1">
-                        <h2 class="t1 show-on-scroll">Oficina de Intermediación Laboral y Pasantías (OILP)</h2>
+                        <h2 class="t1 show-on-scroll">Oficina de Intermediación Laboral y Pasantías del IPISA (OILP-IPISA)</h2>
                         <p class="texto1 show-on-scroll">
-                            La Oficina de Intermediación Laboral y Pasantías (OILP) tiene como objetivo desarrollar procesos de gestión de pasantías, intermediación laboral, orientación laboral y derivación a servicios sociales a jóvenes con formación técnica de los politécnicos y sus Centros Operativos del Sistema (COS) del INFOTEP, que faciliten su acceso al mercado laboral
+                            La Oficina de Intermediación Laboral y Pasantías (OILP-IPISA) tiene como objetivo desarrollar procesos de gestión de pasantías, intermediación laboral, orientación laboral y derivación a servicios sociales a jóvenes con formación técnica de los politécnicos y sus Centros Operativos del Sistema (COS) del INFOTEP, que faciliten su acceso al mercado laboral
                         </p>
                     </div>
                     <div class="caja2">
-                        <img class="img1 show-on-scroll" src="{{ asset('images/olip.png') }}">
+                        <img class="img1 show-on-scroll" src="{{ asset('images/ipisa.png') }}">
                     </div>
                 </div>
             </div>
@@ -368,6 +368,16 @@
                                 sliderNav(i);
                             });
                         });
+
+
+                        window.onload = function() {
+                            setInterval(function() {
+                                document.getElementById('s2').click();
+                        }, 5000);
+                        setInterval(function() {
+                                document.getElementById('s1').click();
+                        }, 12000);
+                        };
                     </script>
 
         </main>

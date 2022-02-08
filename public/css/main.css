@@ -337,7 +337,7 @@ section{
 }
 
 .img1 {
-    margin-top: 70px;
+    margin-top: 0px;
     opacity: 0;
     transform: translateY(4em);
     transition: transform 2.6s .90s cubic-bezier(0,1,.4,1),

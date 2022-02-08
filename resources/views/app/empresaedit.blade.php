@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/empresa.css') }}">
 
     @livewireStyles
 
@@ -199,38 +200,51 @@
 
         <!-- Page Content -->
         <main>
-            aqui se editara el formularo :D:D:D:D:D
+
+        <div class="prt1">
+                <h1 class="t1">En esta página se editará la información de la empresa</h1>
+            
             @if(session()->has('message'))
             
-            <div>{{session()->get('message')}}</div>
+            
             <script>
-                alert("klk wawa");
+                alert("¡La información se ha actualizado correctamente!");
 
             </script>
             @endif
             <div>
-                <form autocomplete="off" action="{{route('app.empresaupdate')}}" method="POST">
+
+            <div class="formulario">
+
+            <h1 class="tEgresado">Empresa</h1>
+                        <div class="linea"> </div>
+                <form class="formegresado" autocomplete="off" action="{{route('app.empresaupdate')}}" method="POST">
                     @csrf
                     @method('PUT')
+                    <div class="campos">
+                    <div class="sec1">
 
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" value="{{$empresa->nombre}}">
+                        <br>
+                        <input class="caja" type="text" name="nombre" value="{{$empresa->nombre}}">
                         @error('nombre')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">RNC</label>
-                        <input type="number" name="rnc" value="{{$empresa->rnc}}">
+                        <br>
+                        <input class="caja" type="number" name="rnc" value="{{$empresa->rnc}}">
                         @error('rnc')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">¿Desea que se conozca la identidad de su empresa?</label>
+                        <br>
                         <div>
                             <select name="visibilidad">
                                 <option value="Si">Si</option>
@@ -243,9 +257,10 @@
                             @enderror
                         </div>
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">¿Dispone su empresa de un Departamento de Formación dentro de la
                             empresa?</label>
+                            <br>
                         <div>
                             <select name="dp_formacion">
                                 <option value="Si">Si</option>
@@ -258,8 +273,9 @@
                             @enderror
                         </div>
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Alcance de la empresa</label>
+                        <br>
                         <div>
                             <select name="alcance">
                                 <option value="Nacional/Local">Nacional/Local</option>
@@ -272,26 +288,35 @@
                             @enderror
                         </div>
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Actividad económica a la que se dedica la empresa</label>
+                        <br>
                         <div>
-                            <textarea name="actividad_economica" cols="30" rows="10">{{$empresa->actividad_economica}}</textarea>
+                            <textarea class="cajagrande" name="actividad_economica" cols="30" rows="10">{{$empresa->actividad_economica}}</textarea>
                         </div>
                         @error('actividad_economica')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+
+                    </div>
+
+                    <div class="sec2">
+
+
+                    <div class="campo">
                         <label for="nombre">Industria</label>
-                        <input type="text" name="industria" value="{{$empresa->industria}}">
+                        <br>
+                        <input class="caja" type="text" name="industria" value="{{$empresa->industria}}">
                         @error('industria')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Tamaño</label>
+                        
                         <br>
 
                         <select name="tamano">
@@ -305,40 +330,45 @@
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Direccion</label>
-                        <input type="text" name="direccion" value="{{$empresa->direccion}}">
+                        <br>
+                        <input class="caja" type="text" name="direccion" value="{{$empresa->direccion}}">
                         @error('direccion')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Sector</label>
-                        <input type="text" name="sector" value="{{$empresa->sector}}">
+                        <br>
+                        <input class="caja" type="text" name="sector" value="{{$empresa->sector}}">
                         @error('sector')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Sección</label>
-                        <input type="text" name="seccion" value="{{$empresa->seccion}}">
+                        <br>
+                        <input class="caja" type="text" name="seccion" value="{{$empresa->seccion}}">
                         @error('seccion')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Municipio</label>
-                        <input type="text" name="municipio" value="{{$empresa->municipio}}">
+                        <br>
+                        <input class="caja" type="text" name="municipio" value="{{$empresa->municipio}}">
                         @error('municipio')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Provincia</label>
+                        <br>
                         <div>
                             <select name="provincia">
                                 <option value="Azúa">Azúa</option>
@@ -381,33 +411,47 @@
                             @enderror
                         </div>
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">País donde opera la empresa</label>
-                        <input type="text" name="pais" value="{{$empresa->pais}}">
+                        <br>
+                        <input class="caja" type="text" name="pais" value="{{$empresa->pais}}">
                         @error('pais')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Teléfono Principal</label>
-                        <input type="number" name="telefono_principal" value="{{$empresa->telefono_principal}}">
+                        <br>
+                        <input class="caja" type="number" name="telefono_principal" value="{{$empresa->telefono_principal}}">
                         @error('telefono_principal')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Teléfono Directo</label>
-                        <input type="number" name="telefono_directo" value="{{$empresa->telefono_directo}}">
+                        <br>
+                        <input class="caja" type="number" name="telefono_directo" value="{{$empresa->telefono_directo}}">
                         @error('telefono_directo')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">editar</button>
+                    </div>
+                    </div>
+
+                            
+
+                    <div class="centrar-btn">
+                    <button id="btn-agregar" type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">editar</button>
+                    </div>
+
 
                 </form>
+
+                </div>
+                </div>
             </div>
         </main>
     </div>
