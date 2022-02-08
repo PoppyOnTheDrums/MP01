@@ -93,12 +93,12 @@
                                     @endcan
 
                                     <!-- Authentication -->
-                                    @can('admin.home')
+                                    @can('egresado.all')
                                     <x-jet-dropdown-link href="{{ route('app.vacanteshow') }}">
                                         {{ __('Vacantes') }}
                                     </x-jet-dropdown-link>
                                     @endcan
-                                    @can('admin.home')
+                                    @can('empresa.all')
                                     <x-jet-dropdown-link href="{{ route('app.egresadoshow') }}">
                                         {{ __('Egresados') }}
                                     </x-jet-dropdown-link>
