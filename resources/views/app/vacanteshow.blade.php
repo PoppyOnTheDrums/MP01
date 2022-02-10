@@ -205,16 +205,26 @@
         <!-- Page Content -->
         <main>
 
-            mostrar vacantes
-            @foreach($vacante as $vacante)
+            @if(!empty($data) && $data->count())
+            @foreach($data as $key => $vacante)
+            <div class="rows">
+
+                <h2 class="t-row">{{$vacante->nombre}}</h2>
+                <h2 class="t-row">{{$vacante->apellido}}</h2>
 
 
-
-
+            </div>
             @endforeach
+            @else
+            <div>
+                <h2 class="t-row">No se encontraron vacantes</h2>
+            </div>
+            @endif
 
+    </div>
+    {!! $data->links() !!}
 
-        </main>
+    </main>
     </div>
 
     @stack('modals')

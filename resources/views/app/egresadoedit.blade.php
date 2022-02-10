@@ -202,12 +202,16 @@
         <main>
             se edita el egresado
             @if(session()->has('message'))
-
-            <div>{{session()->get('message')}}</div>
             <script>
-                alert("klk wawa");
+                alert("Tu informacion se agrego correctamente!");
 
             </script>
+            @elseif(session()->has('message2'))
+            <script>
+                alert("Tu informacion se Actualizo correctamente!");
+
+            </script>
+
             @endif
             <div>
                 <form autocomplete="off" action="{{route('app.egresadoupdate')}}" method="POST">

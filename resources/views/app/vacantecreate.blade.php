@@ -204,7 +204,10 @@
 
                 <h1 class="t1">Esta es la pagina se crean las vacantes</h1>
                 @if(session()->has('message'))
-                <div>{{session()->get('message')}}</div>
+                <script>
+                    alert("La vacante se agrego correctamente!");
+                    window.location.href = "{{ route('app.vacantes') }}";
+                </script>
                 @endif
                 <div>
                     <div class="formulario">

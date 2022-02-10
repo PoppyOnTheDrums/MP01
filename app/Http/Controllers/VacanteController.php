@@ -9,6 +9,7 @@ use App\Models\empresa;
 use App\Models\User;
 use App\Models\vacante;
 use Facade\Ignition\QueryRecorder\Query;
+use Illuminate\Pagination\Paginator;
 
 class VacanteController extends Controller
 {
@@ -26,13 +27,13 @@ class VacanteController extends Controller
         if (empresa::where('user_id', $user_id)->exists()) {
 
             $empresa_id = $empresa->id;
-            $vacante = vacante::where('empresa_id', '=', $empresa_id)->get();
+            $data = vacante::where('empresa_id', '=', $empresa_id)->paginate(5);
 
 
-            return view('app.vacante', compact('vacante'));
+            return view('app.vacante', compact('data'));
         } else {
 
-            return view('app.home');
+            return redirect(route('app.home'))->with('message', 'La vacante se creo correctamente!');
         }
     }
 
@@ -112,9 +113,9 @@ class VacanteController extends Controller
      */
     public function show()
     {
-        $vacante = vacante::all();
+        $data = vacante::where('estado', '=', 'abierta')->paginate(5);
 
-        return view('app.vacanteshow', compact('vacante'));
+        return view('app.vacanteshow', compact('data'));
     }
 
     /**

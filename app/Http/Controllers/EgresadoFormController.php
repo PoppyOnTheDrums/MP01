@@ -136,9 +136,11 @@ class EgresadoFormController extends Controller
      */
     public function show()
     {
-        $egresado = egresado::all();
+       
 
-        return view('app.egresadoshow', compact('egresado'));
+        $data = egresado::paginate(5);
+
+        return view('app.egresadoshow', compact('data'));
     }
 
     /**
@@ -246,7 +248,7 @@ class EgresadoFormController extends Controller
 
         $egresado->update();
 
-        return redirect()->back()->with('message', 'Tu informacion se actualizo correctamente!');
+        return redirect()->back()->with('message2', 'Tu informacion se actualizo correctamente!');
     }
 
     /**

@@ -205,15 +205,27 @@
         <!-- Page Content -->
         <main>
 
-            @foreach($egresado as $egresado)
+            @if(!empty($data) && $data->count())
+            @foreach($data as $key => $egresado)
+            <div class="rows">
+
+                <h2 class="t-row">{{$egresado->nombre}}</h2>
+                <h2 class="t-row">{{$egresado->apellido}}</h2>
 
 
-
-
+            </div>
             @endforeach
+            @else
+            <div>
+                <h2 class="t-row">No se encontraron vacantes</h2>
+            </div>
+            @endif
+
+    </div>
+    {!! $data->links() !!}
 
 
-        </main>
+    </main>
     </div>
 
     @stack('modals')

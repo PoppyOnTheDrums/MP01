@@ -39,6 +39,7 @@
             </tr>
             @endforeach
             @else
+
             <tr>
                 <td colspan="10">No se encontraron Vacantes</td>
             </tr>
@@ -46,7 +47,7 @@
         </tbody>
     </table>
 
-    {!! $data->links() !!}
+    {{ $data->links}}
 </div>
 @stop
 

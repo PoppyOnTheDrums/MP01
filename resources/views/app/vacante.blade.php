@@ -10,7 +10,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vacante.css') }}">
@@ -202,15 +202,15 @@
             <div class="prt1">
                 <div class="formulario">
                     <div class="lado">
-                    <h1 class="t1">Esta es la pagina para vizualisar las vacantes</h1>
+                        <h1 class="t1">Esta es la pagina para vizualisar las vacantes</h1>
 
-                    <div class="wrapper-t2">
-                        <a>
-                        <a class="t2" href="{{ route('app.vacantescreate') }}">Crea una Vacante<div class="plus"></div></a>
-                        
-                        </a>
+                        <div class="wrapper-t2">
+                            <a>
+                                <a class="t2" href="{{ route('app.vacantescreate') }}">Crea una Vacante<div class="plus"></div></a>
+
+                            </a>
+                        </div>
                     </div>
-</div>
 
                     <h1 class="t3">Vacantes creadas</h1>
 
@@ -225,10 +225,9 @@
                             <h2 id="f" class="t-title"></h2>
                         </div>
 
-                        
-
-                            @foreach($vacante as $vacante)
-                            <div class="rows">
+                        @if(!empty($data) && $data->count())
+                        @foreach($data as $key => $vacante)
+                        <div class="rows">
 
                             <h2 class="t-row">{{$vacante->nombre}}</h2>
                             <h2 class="t-row">{{$vacante->puesto}}</h2>
@@ -239,10 +238,16 @@
 
 
                             <a id="edit-btn" class="t-row" href="{{ route('app.vacantesedit', $vacante) }}">editar</a>
-                            </div>
-                            @endforeach
-                        
+                        </div>
+                        @endforeach
+                        @else
+                        <div>
+                            <h2 class="t-row">No se encontraron vacantes</h2>
+                        </div>
+                        @endif
+
                     </div>
+                    {!! $data->links() !!}
                 </div>
             </div>
         </main>

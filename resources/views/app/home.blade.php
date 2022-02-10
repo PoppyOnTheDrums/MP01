@@ -204,6 +204,12 @@
 
         <!-- Page Content -->
         <main>
+
+            @if(session()->has('message'))
+            <script>
+                alert("Debes registrar tu empresa para publicar vacantes!");
+            </script>
+            @endif
             <!--
          <img class="" src="{{ asset('images/ingenieros.jpg') }}">  -->
 
@@ -260,13 +266,13 @@
                 </div>
                 <div class="media-icons">
                     <a href="https://es-la.facebook.com/IPISASDB/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/ipisasdb/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
                 <div class="slider-navigation">
                     <div id="s1" class="nav-btn active"></div>
                     <div id="s2" class="nav-btn"></div>
-              <!--       <div class="nav-btn"></div>
+                    <!--       <div class="nav-btn"></div>
                     <div class="nav-btn"></div>
                     <div class="nav-btn"></div> -->
                 </div>
@@ -373,10 +379,10 @@
                         window.onload = function() {
                             setInterval(function() {
                                 document.getElementById('s2').click();
-                        }, 8000);
-                        setInterval(function() {
+                            }, 8000);
+                            setInterval(function() {
                                 document.getElementById('s1').click();
-                        }, 16000);
+                            }, 16000);
                         };
                     </script>
 
