@@ -14,7 +14,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vacanteshow.css') }}">
 
 
     @livewireStyles
@@ -204,20 +204,36 @@
 
         <!-- Page Content -->
         <main>
+            <div class="h">
+                <h1 class="h-title">Listado De Vacantes</h1>
+            </div>
+
 
             @if(!empty($data) && $data->count())
             @foreach($data as $key => $vacante)
-            <div class="rows">
+            <div class="container">
+                <div class="card-container">
+                    <div class="header">
+                        <h1 class="titulo">Informacion Basica</h1>
+                        <h2 class="t-row">Empresa: {{$vacante->nombre}}</h2>
+                        <h2 class="t-row">Telefono: {{$vacante->telefono}}</h2>
+                        <h2 class="t-row">Persona de Contacto: {{$vacante->persona_contacto}}</h2>
+            
+                    </div>
+                    <div class="descripcion">
+                        <h1 class="titulo">Contrato</h1>
+                        <h2 class="t-row">Sueldo: {{$vacante->sueldo}} $</h2>
+                        <h2 class="t-row">Tipo de Contrato: {{$vacante->tipo_contrato}}</h2>
+                        <h2 class="t-row">Puesto: {{$vacante->puesto}}</h2>
+                        <h2 class="t-row">Ubicacion: {{$vacante->ubicacion}}</h2>
 
-                <h2 class="t-row">{{$vacante->nombre}}</h2>
-                <h2 class="t-row">{{$vacante->apellido}}</h2>
-
-
+                    </div>
+                </div>
             </div>
             @endforeach
             @else
-            <div>
-                <h2 class="t-row">No se encontraron vacantes</h2>
+            <div class="error-div">
+                <h2 class="error">No se encuentran vacantes disponibles</h2>
             </div>
             @endif
 

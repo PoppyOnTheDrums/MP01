@@ -201,13 +201,13 @@
         <!-- Page Content -->
         <main>
             @if(session()->has('message'))
-            
+
             <script>
                 alert("La información se ha actualizado correctamente");
                 window.location.href = "{{ route('app.vacantes') }}";
             </script>
             @elseif(session()->has('message2'))
-              
+
             <script>
                 alert("El egresado que quiere asignar no existe");
             </script>
@@ -252,6 +252,18 @@
                                 <div class="campo"> <label>Sueldo</label>
                                     <br />
                                     <input class="caja" type="number" step="any" name="sueldo" value="{{($vacante->sueldo)}}">
+                                    @error('sueldo')
+                                    <small class="text-danger">*Campo requerido</small>
+                                    <br>
+                                    @enderror
+                                </div>
+                                <div class="campo"><label>Estado</label>
+                                    <br />
+                                    <select name="estado">
+                                        <option value="abierta">Abierta</option>
+                                        <option value="cerrada">Cerrada</option>
+                                    </select>
+                                    <span>Actual: {{($vacante->estado)}}</span>
                                     @error('sueldo')
                                     <small class="text-danger">*Campo requerido</small>
                                     <br>

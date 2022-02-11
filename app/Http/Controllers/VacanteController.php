@@ -154,6 +154,7 @@ class VacanteController extends Controller
             'correro_curriculum' => 'required',
             'telefono' => 'required',
             'persona_contacto' => 'required',
+            'estado' => 'required',
 
 
         ]);
@@ -172,6 +173,7 @@ class VacanteController extends Controller
                 $vacante->telefono = $request->telefono;
                 $vacante->persona_contacto = $request->persona_contacto;
                 $vacante->user_id = $request->user_id;
+                $vacante->estado = $request->estado;
 
                 $vacante->update();
 
@@ -190,6 +192,7 @@ class VacanteController extends Controller
             $vacante->correro_curriculum = $request->correro_curriculum;
             $vacante->telefono = $request->telefono;
             $vacante->persona_contacto = $request->persona_contacto;
+            $vacante->estado = $request->estado;
 
             $vacante->update();
 

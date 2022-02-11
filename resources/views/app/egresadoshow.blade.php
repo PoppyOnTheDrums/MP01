@@ -14,7 +14,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/egresadoshow.css') }}">
 
 
     @livewireStyles
@@ -204,20 +204,47 @@
 
         <!-- Page Content -->
         <main>
+            <div class="h">
+                <h1 class="h-title">Listado De Egresados</h1>
+            </div>
 
             @if(!empty($data) && $data->count())
             @foreach($data as $key => $egresado)
-            <div class="rows">
+            <div class="container">
+                <div class="card-container">
+                    <div class="header">
+                        <h1 class="titulo">Informacion Basica</h1>
+                        <h2 class="t-row">Nombre: {{$egresado->nombre}}</h2>
+                        <h2 class="t-row">Apellido: {{$egresado->apellido}}</h2>
+                        <h2 class="t-row">Sexo: {{$egresado->sexo}}</h2>
+                        <h2 class="t-row">Institucion Educativa: {{$egresado->institucion_educativa}}</h2>
+                    </div>
+                    <div class="descripcion">
+                        <h1 class="titulo">Contactos</h1>
+                        <h2 class="t-row">Telefono Recidencial: {{$egresado->telefono_recidencial}}</h2>
+                        <h2 class="t-row">Telefono Movil: {{$egresado->telefono_movil}}</h2>
+                        <h2 class="t-row">Email: {{$egresado->email}}</h2>
+                        <h2 class="t-row">Provinca: {{$egresado->provincia}}</h2>
 
-                <h2 class="t-row">{{$egresado->nombre}}</h2>
-                <h2 class="t-row">{{$egresado->apellido}}</h2>
+                    </div>
+                    <div class="descripcion">
+                        <h1 class="titulo">Educacion</h1>
+                        <h2 class="t-row">Carrera Tecnica: {{$egresado->carrera_tecnica}}</h2>
+                        <h2 class="t-row">Tecnico Basico: {{$egresado->tecnico_basico}}</h2>
+                        <h2 class="t-row">Graduacion: {{$egresado->graduacion}}</h2>
+                        <h2 class="t-row">Matricula: {{$egresado->matricula}}</h2>
 
-
+                    </div>
+                    <div class="descripcion">
+                        <h1 class="titulo">ID</h1>
+                        <h2 class="t-row">{{$egresado->id}}</h2>
+                    </div>
+                </div>
             </div>
             @endforeach
             @else
-            <div>
-                <h2 class="t-row">No se encontraron vacantes</h2>
+            <div class="error-div">
+                <h2 class="error">No se encuentran vacantes disponibles</h2>
             </div>
             @endif
 
