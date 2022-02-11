@@ -26,7 +26,7 @@ class Vacante extends Migration
             $table->text('tipo_contrato')->nullable();
             $table->text('horario');
             $table->text('correro_curriculum');
-            $table->integer('telefono');
+            $table->text('telefono');
             $table->text('persona_contacto');
             $table->string('estado')->default('abierta'); 
             $table->timestamps();

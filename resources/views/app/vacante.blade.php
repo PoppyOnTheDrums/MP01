@@ -218,7 +218,6 @@
                         <div class="ts">
                             <h2 class="t-title">Nombre</h2>
                             <h2 class="t-title">Puesto</h2>
-                            <h2 class="t-title">Perfil del Puesto</h2>
                             <h2 class="t-title">Sueldo</h2>
                             <h2 class="t-title">Ubicacion</h2>
                             <h2 class="t-title">Tipo de contrato</h2>
@@ -231,7 +230,6 @@
 
                             <h2 class="t-row">{{$vacante->nombre}}</h2>
                             <h2 class="t-row">{{$vacante->puesto}}</h2>
-                            <h2 class="t-row">{{$vacante->perfi_puesto}}</h2>
                             <h2 class="t-row">{{$vacante->sueldo}} $</h2>
                             <h2 class="t-row">{{$vacante->ubicacion}}</h2>
                             <h2 class="t-row">{{$vacante->tipo_contrato}}</h2>

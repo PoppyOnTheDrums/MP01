@@ -43,18 +43,28 @@ class VacanteController extends Controller
 
         $vacante =  vacante::find($id);
         $busqueda = $request->user_id;
+    
 
-        if (egresado::where('id', $busqueda)->exists()) {
 
+        if ($busqueda) {
+
+            if (egresado::where('id', $busqueda)->exists()) {
+
+
+                $vacante->estado = $request->estado;
+                $vacante->user_id = $request->user_id;
+
+                $vacante->update();
+                return redirect()->back()->with('message', 'La informacion se a actualizado correctamente!');
+
+            } else {
+                return redirect()->back()->with('message2', 'El egresado al cual le asigno la vacante no existe!');
+            }
+        } else {
 
             $vacante->estado = $request->estado;
-            $vacante->user_id = $request->user_id;
-
             $vacante->update();
-        } else {
-            return redirect()->back()->with('message', 'El egresado al cual le asigno la vacante no existe!');
+            return redirect()->back()->with('message', 'La informacion se a actualizado correctamente!');
         }
-
-        return redirect()->back()->with('message', 'La informacion se a actualizado correctamente!');
     }
 }

@@ -34,8 +34,8 @@ class Egresado extends Migration
             $table->text('municipio');
             $table->text('provincia');
             $table->text('pais_nacionalidad');
-            $table->integer('telefono_recidencial');
-            $table->integer('telefono_movil');
+            $table->text('telefono_recidencial');
+            $table->text('telefono_movil');
             $table->string('licencia')->default('no');
             $table->string('vehiculo')->default('no');
             $table->text('email');

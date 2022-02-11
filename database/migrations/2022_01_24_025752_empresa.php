@@ -30,8 +30,8 @@ class Empresa extends Migration
             $table->text('municipio');
             $table->text('provincia');
             $table->text('pais');
-            $table->integer('telefono_principal');
-            $table->integer('telefono_directo');
+            $table->text('telefono_principal');
+            $table->text('telefono_directo');
             $table->timestamps();
 
         });
