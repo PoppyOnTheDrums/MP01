@@ -13,6 +13,10 @@
 <div class="card">
     <div class="container">
         <div class="d-flex">
+            <h5 class="pt-4 pl-2">ID:</h5>
+            <p class="h5 pt-4 pl-4 font-weight-normal">{{$egresado->id}}</p>
+        </div>
+        <div class="d-flex">
             <h5 class="pt-4 pl-2">Graduacion:</h5>
             <p class="h5 pt-4 pl-4 font-weight-normal">{{$egresado->graduacion}}</p>
         </div>
