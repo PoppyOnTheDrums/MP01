@@ -334,7 +334,19 @@
                 <a href="{{ route('register') }}" class="botonreg">Registrate</a>
 
                 @endif
-                <div>
+                </div>
+
+                
+                <div class="footer">
+                    <div class="f1">
+                        <p>© Oficina de Intermediación Laboral y Pasantías del IPISA <span id="year"></span></p>
+                    </div>
+                    <div class="orange-l">
+                </div>
+                    
+</div>
+
+
                     <script src="{{ asset('js/show-on-scroll.js') }}"></script>
                     <script type="text/javascript">
                         //Javacript for responsive navigation menu
@@ -384,6 +396,10 @@
                                 document.getElementById('s1').click();
                             }, 16000);
                         };
+
+
+
+                        document.getElementById("year").innerHTML = new Date().getFullYear();
                     </script>
 
         </main>

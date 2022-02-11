@@ -500,6 +500,7 @@ section{
 .cta {
     margin: 20px auto;
     margin-top: 40px;
+    margin-bottom: 80px;
     width: 90%;
     background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(/images/estudiantes4.jpg);
     background-position: center;
@@ -535,4 +536,26 @@ section{
   border-radius: 2px;
 }
 
+
+.footer {
+  background-color: #222;
+  height: 200px;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+.f1 {
+  padding-top: 80px;
+}
+
+.orange-l {
+  background-color: #e87a16;
+  height: 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+}
 
