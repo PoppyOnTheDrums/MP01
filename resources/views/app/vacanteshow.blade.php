@@ -218,7 +218,7 @@
                         <h2 class="t-row">Empresa: {{$vacante->nombre}}</h2>
                         <h2 class="t-row">Telefono: {{$vacante->telefono}}</h2>
                         <h2 class="t-row">Persona de Contacto: {{$vacante->persona_contacto}}</h2>
-            
+
                     </div>
                     <div class="descripcion">
                         <h1 class="titulo">Contrato</h1>
@@ -241,6 +241,12 @@
     {!! $data->links() !!}
 
     </main>
+    <div class="footer">
+        <div class="f1">
+            <p>© Oficina de Intermediación Laboral y Pasantías del IPISA <span id="year"></span></p>
+        </div>
+        <div class="orange-l">
+        </div>
     </div>
 
     @stack('modals')

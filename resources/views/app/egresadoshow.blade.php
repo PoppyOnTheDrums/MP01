@@ -252,7 +252,13 @@
     {!! $data->links() !!}
 
 
-    </main>
+    <div class="footer">
+        <div class="f1">
+            <p>© Oficina de Intermediación Laboral y Pasantías del IPISA <span id="year"></span></p>
+        </div>
+        <div class="orange-l">
+        </div>
+        </main>
     </div>
 
     @stack('modals')
