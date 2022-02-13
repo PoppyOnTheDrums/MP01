@@ -15,8 +15,6 @@ class Vacante extends Migration
     {
         Schema::create('vacantes', function (Blueprint $table) {
             $table->id();
-            $table->index('user_id');
-            $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('empresa_id')->references('id')->on('empresas');
             $table->text('nombre');
             $table->text('puesto');

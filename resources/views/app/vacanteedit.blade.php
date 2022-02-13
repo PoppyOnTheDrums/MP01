@@ -337,17 +337,12 @@
                                     @enderror
 
                                 </div>
-                                <div class="campo">
-                                    <label>Asignar Egresado</label>
-                                    <br />
-                                    <input type="number" name="user_id" value="{{($vacante->user_id)}}">
-
-                                </div>
                             </div>
                         </div>
                         <div class="centrar-btn">
-                            <button id="btn-agregar" type="submit">Editar Vacante</button>
+                            <button id="btn-agregar" type="submit">Guardar Cambios</button>
                         </div>
+
 
 
 

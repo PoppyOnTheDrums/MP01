@@ -10,10 +10,11 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/vacante.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vacantefrm.css') }}">
+
     @livewireStyles
 
     <!-- Scripts -->
@@ -199,57 +200,57 @@
 
         <!-- Page Content -->
         <main>
-            <div class="prt1">
-                <div class="formulario">
-                    <div class="lado">
-                        <h1 class="t1">Esta es la pagina para vizualisar las vacantes</h1>
+            @if(session()->has('message'))
+            <script>
+                alert("El egresado se asigno correctamente!");
+            </script>
+            @elseif(session()->has('message2'))
+            <script>
+                alert("El egresado que quiere asignar no existe!");
+            </script>
+            @elseif(session()->has('message3'))
+            <script>
+                alert("El egresado se elimino correctamente!");
+            </script>
+            @elseif(session()->has('message4'))
+            <script>
+                alert("El egresado se ya esta asignado en la vacante!");
+            </script>
+            @endif
+            Asigna un egresado
+            <form autocomplete="off" action="{{ route('app.asignstore')}}" method="POST">
+                @csrf
+                <label>ID Egresado:</label>
+                <input type="number" name="user_id">
+                <input type="hidden" name="vacante_id" value="{{$vacante->id}}">
+                <br>
+                <button type="submit">Añadir Egresado</button>
+            </form>
 
-                        <div class="wrapper-t2">
-                            <a>
-                                <a class="t2" href="{{ route('app.vacantescreate') }}">Crea una Vacante<div class="plus"></div></a>
+            @foreach($detalle_v as $detalle_v)
+            <table>
+                <tr>
+                    <th>ID Vacante</th>
+                    <th>ID User</th>
+                    <th>Accion</th>
+                </tr>
+                <tr>
+                    <td>{{$detalle_v->vacante_id}}</td>
+                    <td>{{$detalle_v->user_id}}</td>
+                    <td>
+                    <td>
+                        <form action="{{route('app.asigndelete',$detalle_v)}}" method="POST" class=".formulario-eliminar">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm my-2">Eliminar</button>
+                        </form>
+                    </td>
 
-                            </a>
-                        </div>
-                    </div>
+                </tr>
 
-                    <h1 class="t3">Vacantes creadas</h1>
+            </table>
+            @endforeach
 
-                    <div class="registros">
-                        <div class="ts">
-                            <h2 class="t-title">Nombre</h2>
-                            <h2 class="t-title">Puesto</h2>
-                            <h2 class="t-title">Sueldo</h2>
-                            <h2 class="t-title">Ubicacion</h2>
-                            <h2 class="t-title">Tipo de contrato</h2>
-                            <h2 id="f" class="t-title"></h2>
-                            <h2 id="f" class="t-title"></h2>
-                        </div>
-
-                        @if(!empty($data) && $data->count())
-                        @foreach($data as $key => $vacante)
-                        <div class="rows">
-
-                            <h2 class="t-row">{{$vacante->nombre}}</h2>
-                            <h2 class="t-row">{{$vacante->puesto}}</h2>
-                            <h2 class="t-row">{{$vacante->sueldo}} $</h2>
-                            <h2 class="t-row">{{$vacante->ubicacion}}</h2>
-                            <h2 class="t-row">{{$vacante->tipo_contrato}}</h2>
-
-
-                            <a id="edit-btn" class="t-row" href="{{ route('app.vacantesedit', $vacante) }}">editar</a>
-                            <a id="edit-btn" class="t-row" href="{{ route('app.vacanteasign', $vacante) }}">Asignar Egresado</a>
-                        </div>
-                        @endforeach
-                        @else
-                        <div>
-                            <h2 class="t-row">No se encontraron vacantes</h2>
-                        </div>
-                        @endif
-
-                    </div>
-                    {!! $data->links() !!}
-                </div>
-            </div>
         </main>
     </div>
 

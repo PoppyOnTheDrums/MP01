@@ -141,7 +141,6 @@ class VacanteController extends Controller
 
         $vacante =  vacante::find($id);
         $user_id = Auth::user()->id;
-        $busqueda = $request->user_id;
 
         $request->validate([
 
@@ -158,30 +157,7 @@ class VacanteController extends Controller
 
 
         ]);
-
-        if ($busqueda) {
-
-            if (egresado::where('id', $busqueda)->exists()) {
-
-                $vacante->puesto = $request->puesto;
-                $vacante->perfi_puesto = $request->perfi_puesto;
-                $vacante->sueldo = $request->sueldo;
-                $vacante->ubicacion = $request->ubicacion;
-                $vacante->tipo_contrato = $request->tipo_contrato;
-                $vacante->horario = $request->horario;
-                $vacante->correro_curriculum = $request->correro_curriculum;
-                $vacante->telefono = $request->telefono;
-                $vacante->persona_contacto = $request->persona_contacto;
-                $vacante->user_id = $request->user_id;
-                $vacante->estado = $request->estado;
-
-                $vacante->update();
-
-                return redirect()->back()->with('message', 'La vacante se Actualizo correctamente!');
-            } else {
-                return redirect()->back()->with('message2', 'El egresado que quiere asignar no existe!');
-            }
-        } else {
+        
 
             $vacante->puesto = $request->puesto;
             $vacante->perfi_puesto = $request->perfi_puesto;
@@ -197,7 +173,7 @@ class VacanteController extends Controller
             $vacante->update();
 
             return redirect()->back()->with('message', 'La vacante se Actualizo correctamente!');
-        }
+        
 
         /*        $vacante->puesto = $request->puesto;
         $vacante->perfi_puesto = $request->perfi_puesto;
