@@ -22,6 +22,7 @@
                 <th>Tipo de Contrato</th>
                 <th>Estado</th>
                 <th width="150px;">Action</th>
+                <th width="150px;">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,9 @@
                 <td>{{ $vacante->estado }}</td>
                 <td>
                     <a href="{{route('admin.vacanteinfo', $vacante)}}">Ver Vacante</a>
+                </td>
+                <td>
+                    <a href="{{ route('admin.vacanteasign', $vacante) }}">Asignar Egresado</a>
                 </td>
             </tr>
             @endforeach

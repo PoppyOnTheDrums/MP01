@@ -71,12 +71,12 @@ Route::get('Vacantes/{vacante}', [VacanteController::class, 'edit'])->middleware
 
 Route::put('Vacantes/{vacante}', [VacanteController::class, 'update'])->middleware('can:empresa.all')->name('app.vacantesupdate');
 
-Route::get('Egresados/Vacantes', [VacanteController::class, 'show'])->name('app.vacanteshow');
+Route::get('Egresados/Vacantes', [VacanteController::class, 'show'])->middleware('can:egresado.all')->name('app.vacanteshow');
 
-Route::get('Empresa/Egresados', [EgresadoFormController::class, 'show'])->name('app.egresadoshow');
+Route::get('Empresa/Egresados', [EgresadoFormController::class, 'show'])->middleware('can:empresa.all')->name('app.egresadoshow');
 
-Route::get('Vacante/{vacante}', [AsignController::class, 'index'])->name('app.vacanteasign');
+Route::get('Vacante/{vacante}', [AsignController::class, 'index'])->middleware('can:empresa.all')->name('app.vacanteasign');
 
-Route::post('Vacante/Asign', [AsignController::class, 'store'])->name('app.asignstore');
+Route::post('Vacante/Asign', [AsignController::class, 'store'])->middleware('can:empresa.all')->name('app.asignstore');
 
-Route::delete('categoria/{detalle_v}', [AsignController::class, 'destroy'])->name('app.asigndelete');
+Route::delete('V/{detalle_v}', [AsignController::class, 'destroy'])->middleware('can:empresa.all')->name('app.asigndelete');

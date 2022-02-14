@@ -230,12 +230,10 @@
             @foreach($detalle_v as $detalle_v)
             <table>
                 <tr>
-                    <th>ID Vacante</th>
                     <th>ID User</th>
                     <th>Accion</th>
                 </tr>
                 <tr>
-                    <td>{{$detalle_v->vacante_id}}</td>
                     <td>{{$detalle_v->user_id}}</td>
                     <td>
                     <td>

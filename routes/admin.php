@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AsignAdmin;
 use App\Http\Controllers\Admin\EgresadoController;
 use App\Http\Controllers\Admin\EmpresaController;
 use App\Http\Controllers\Admin\VacanteController;
@@ -23,3 +24,9 @@ Route::get('Empresa/{empresa}',[EmpresaController::class, 'show'])->middleware('
 Route::get('Vacante/{vacante}',[VacanteController::class, 'show'])->middleware('can:admin.home')->name('admin.vacanteinfo');
 
 Route::put('Vacante/{vacante}',[VacanteController::class, 'update'])->middleware('can:admin.home')->name('admin.vacanteupdate');
+
+Route::get('Vacantes/{vacante}', [AsignAdmin::class, 'index'])->middleware('can:admin.home')->name('admin.vacanteasign');
+
+Route::post('Vacantes/Asign', [AsignAdmin::class, 'store'])->middleware('can:admin.home')->name('admin.asignstore');
+
+Route::delete('V/{detalle_v}', [AsignAdmin::class, 'destroy'])->middleware('can:admin.home')->name('admin.asigndelete');
