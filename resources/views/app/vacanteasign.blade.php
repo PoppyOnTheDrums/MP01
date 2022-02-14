@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/vacantefrm.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/a.css') }}">
 
     @livewireStyles
 
@@ -217,17 +217,29 @@
                 alert("El egresado se ya esta asignado en la vacante!");
             </script>
             @endif
-            Asigna un egresado
+<div class="divtitulo">
+            <h2 class="titulo">Asigna un egresado</h2>
+</div>
+<div class="infoe">
             <form autocomplete="off" action="{{ route('app.asignstore')}}" method="POST">
                 @csrf
-                <label>ID Egresado:</label>
-                <input type="number" name="user_id">
-                <input type="hidden" name="vacante_id" value="{{$vacante->id}}">
-                <br>
-                <button type="submit">Añadir Egresado</button>
-            </form>
 
+                <label class="legresado">ID Egresado:</label>
+                
+                                       
+                <input class="egresadot" type="number" name="user_id">
+                <input type="hidden" name="vacante_id" value="{{$vacante->id}}">
+                
+
+                <div class="addegresado">
+
+                <button type="submit">Añadir Egresado</button>
+</div>
+</div>
+            </form>
+            <div class="infoe2">
             @foreach($detalle_v as $detalle_v)
+           
             <table>
                 <tr>
                     <th>ID User</th>
@@ -247,6 +259,8 @@
                 </tr>
 
             </table>
+
+</div>
             @endforeach
 
         </main>
