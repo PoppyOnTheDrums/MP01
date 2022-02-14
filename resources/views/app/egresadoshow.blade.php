@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/egresadoshow.css') }}">
 
 
+
     @livewireStyles
 
     <!-- Scripts -->

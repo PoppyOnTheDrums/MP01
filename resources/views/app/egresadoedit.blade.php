@@ -13,6 +13,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/egresadoedit.css') }}">
+
 
     @livewireStyles
 
@@ -200,7 +202,11 @@
 
         <!-- Page Content -->
         <main>
-            se edita el egresado
+
+            
+
+
+            
             @if(session()->has('message'))
             <script>
                 alert("Tu informacion se agrego correctamente!");
@@ -213,93 +219,140 @@
             </script>
 
             @endif
+
+
+            <div class="prt1">
+            <h1 class="t1">En esta página el egresado llenará su información</h1>
+
+            
+                    
             <div>
-                <form autocomplete="off" action="{{route('app.egresadoupdate')}}" method="POST">
+            <div class="formulario">
+            <h1 class="tEgresado">Egresado</h1>
+                        <div class="linea"> </div>
+
+                <form class="formegresado" autocomplete="off" action="{{route('app.egresadoupdate')}}" method="POST">
                     @csrf
                     @method('PUT')
+                    <div class="campos">
+                    <div class="sec1">
 
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Año de Graduación</label>
-                        <input type="number" name="graduacion" value="{{$egresado->graduacion}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="graduacion" value="{{$egresado->graduacion}}">
                         @error('graduacion')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+
+                    <div class="campo">
                         <label for="nombre">Institución educativa a la que pertenece</label>
-                        <input type="text" name="institucion_educativa" value="{{$egresado->institucion_educativa}}">
+                        <br>
+                        <div class="espacio"></div>
+                        
+                        <input class="caja" type="text" name="institucion_educativa" value="{{$egresado->institucion_educativa}}">
                         @error('institucion_educativa')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
-                        <label for="nombre">Curso</label>
-                        <input type="text" name="curso" value="{{$egresado->curso}}">
+                    <div class="campo">
+                        <label for="nombre" for="nombre">Curso</label>
+                        <br>
+
+                        <div class="espacio"></div>
+                        <input class="caja" type="text" name="curso" value="{{$egresado->curso}}">
                         @error('curso')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+
+                    <div class="campo">
                         <label for="nombre">Matrícula</label>
-                        <input type="number" name="matricula" value="{{$egresado->matricula}}">
+                        <br>
+
+                        <div class="espacio"></div>
+                        <input class="caja" for="nombre" type="number" name="matricula" value="{{$egresado->matricula}}">
                         @error('matricula')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Cédula de Identidad</label>
-                        <input type="number" name="cedula" value="{{$egresado->cedula}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="cedula" value="{{$egresado->cedula}}">
                         @error('cedula')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Carrera Técnica</label>
-                        <input type="text" name="carrera_tecnica" value="{{$egresado->carrera_tecnica}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="carrera_tecnica" value="{{$egresado->carrera_tecnica}}">
                         @error('carrera_tecnica')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Técnico Básico</label>
-                        <input type="text" name="tecnico_basico" value="{{$egresado->tecnico_basico}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="tecnico_basico" value="{{$egresado->tecnico_basico}}">
                         @error('tecnico_basico')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Nombres</label>
-                        <input type="text" name="nombre" value="{{$egresado->nombre}}">
+                        <br>
+                        <div class="espacio"></div>
+                         
+                        <input class="caja" type="text" name="nombre" value="{{$egresado->nombre}}">
                         @error('nombre')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Apellidos</label>
-                        <input type="text" name="apellido" value="{{$egresado->apellido}}">
+                        <br>
+                        <div class="espacio"></div>
+                         
+                        <input class="caja" type="text" name="apellido" value="{{$egresado->apellido}}">
                         @error('apellido')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Fecha de Nacimiento</label>
+                        <br>
+                        <div class="espacio"></div>
+
                         <input type="date" name="fecha_nac" value="{{$egresado->fecha_nac}}">
                         @error('fecha_nac')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Sexo</label>
+                        <br>
+                        <div class="espacio"></div>
 
                         <div>
                             <select name="sexo">
@@ -312,40 +365,59 @@
                             @enderror
                         </div>
                     </div>
-                    <div>
+
+                    </div>
+                                <div class="sec2">
+                    <div class="campo">
                         <label for="nombre">Dirección</label>
-                        <input type="text" name="direccion" value="{{$egresado->direccion}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        
+                        <input class="caja" type="text" name="direccion" value="{{$egresado->direccion}}">
                         @error('direccion')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Sector</label>
-                        <input type="text" name="sector" value="{{$egresado->sector}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="sector" value="{{$egresado->sector}}">
                         @error('sector')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Sección</label>
-                        <input type="text" name="seccion" value="{{$egresado->seccion}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="seccion" value="{{$egresado->seccion}}">
                         @error('seccion')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Municipio</label>
-                        <input type="text" name="municipio" value="{{$egresado->municipio}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="municipio" value="{{$egresado->municipio}}">
                         @error('municipio')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Provincia</label>
+                        <br>
+                        <div class="espacio"></div>
+
                         <div>
                             <select name="provincia">
                                 <option value="Azúa">Azúa</option>
@@ -387,82 +459,114 @@
                             @enderror
                         </div>
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">País de Nacionalidad</label>
-                        <input type="text" name="pais_nacionalidad" value="{{$egresado->pais_nacionalidad}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="text" name="pais_nacionalidad" value="{{$egresado->pais_nacionalidad}}">
                         @error('pais_nacionalidad')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Teléfono Residencial</label>
-                        <input type="number" name="telefono_recidencial" value="{{$egresado->telefono_recidencial}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="telefono_recidencial" value="{{$egresado->telefono_recidencial}}">
                         @error('telefono_recidencial')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Teléfono Móvil</label>
-                        <input type="number" name="telefono_movil" value="{{$egresado->telefono_movil}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="number" name="telefono_movil" value="{{$egresado->telefono_movil}}">
                         @error('telefono_movil')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Posee licencia de conducir?</label>
+                        <br>
+                        <div class="espacio"></div>
+
                         <input type="checkbox" name="licencia" value="si">
                         @error('licencia')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Posee vehículo propio?</label>
+                        <br>
+                        <div class="espacio"></div>
+
                         <input type="checkbox" name="vehiculo" value="si">
                         @error('vehiculo')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Email</label>
-                        <input type="email" name="email" value="{{$egresado->email}}">
+                        <br>
+                        <div class="espacio"></div>
+
+                        <input class="caja" type="email" name="email" value="{{$egresado->email}}">
                         @error('email')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Años de Experiencia</label>
+                        <br>
+                        <div class="espacio"></div>
+
                         <input class="caja" type="number" name="experiencia" value="{{$egresado->experiencia}}">
                         @error('experiencia')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">desean trabajar en el área técnica que estudiaron u otra área?</label>
+                        <br>
+                        <div class="espacio"></div>
+
                         <input class="caja" type="text" name="area_tecnica_trabajo" value="{{$egresado->area_tecnica_trabajo}}">
                         @error('area_tecnica_trabajo')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-                    <div>
+                    <div class="campo">
                         <label for="nombre">Curriculum Vitae</label>
+                        <br>
+                        <div class="espacio"></div>
+
                         <input class="caja" type="file" name="file">
                         @error('file')
                         <small class="text-danger">*Campo requerido</small>
                         <br>
                         @enderror
                     </div>
-
-                    <button type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Editar</button>
-
+</div>
+</div>
+<div class="centrar-btn">
+                    <button id="btn-agregar" type="submit" class="btn btn-primary btn-md d-block mx-auto my-2">Editar</button>
+                    </div>
                 </form>
+                </div>
+                </div>
+            </div>
             </div>
         </main>
     </div>
