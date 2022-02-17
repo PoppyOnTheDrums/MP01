@@ -32,7 +32,7 @@ class AsignController extends Controller
         $id = $request->vacante_id;
         $busqueda = vacante::where('id', '=', $id)->exists();
 
-        if (detalle_vacante::where('user_id', '=',  $user_id)->exists()) {
+        if (detalle_vacante::where('user_id', '=',  $user_id)->where('vacante_id','=',$id)->exists()) {
             return redirect()->back()->with('message4', 'El egresado que quiere asignar no existe!');
         } else {
             if ($busqueda) {

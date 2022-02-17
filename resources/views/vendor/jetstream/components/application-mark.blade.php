@@ -21,5 +21,5 @@
 </style>
 <a class="logolink" href="/">
    <img class="imagelogo" src="{{asset('/images/ipisa.png')}}" alt="" >
-   <h1 class="olip">OLIP | IPISA</h1>
+   <h1 class="olip">OILP | IPISA</h1>
 </a>

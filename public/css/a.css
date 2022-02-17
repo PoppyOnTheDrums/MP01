@@ -131,6 +131,13 @@ background: linear-gradient(351deg, rgba(4,4,124,1) 0%, rgba(0,121,255,1) 100%);
 
 .infoe {
   padding: 80px;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 0;
+}
+
+.infoeform {
+  width: 100%;
 }
 
 .addegresado {
@@ -140,10 +147,18 @@ background: linear-gradient(351deg, rgba(4,4,124,1) 0%, rgba(0,121,255,1) 100%);
   background-color: #f08c0a;
   width: 150px;
   border-radius: 4px;
+  
 }
 
 .egresadot {
   margin-left: 10px;
+  flex-grow: 1;
+  flex-basis: 0
+}
+
+.sec1 {
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
 
@@ -154,4 +169,33 @@ background: linear-gradient(351deg, rgba(4,4,124,1) 0%, rgba(0,121,255,1) 100%);
 
 .infoe2 {
   padding: 0px 80px;
+}
+
+.tablae {
+  width: 100%;
+
+table-layout: auto;
+text-align: center;
+-webkit-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55); 
+  box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
+}
+
+.tablae, th, td {
+
+  
+  border: solid 1px #f08c0a;
+}
+
+.tablae th {
+
+  
+  background-color:  #ffd195;
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\AsignController;
 use App\Models\User;
 use App\Http\Controllers\EgresadoFormController;
 use App\Http\Controllers\EmpresaFormController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\VacanteController;
 
 /*
@@ -80,3 +81,7 @@ Route::get('Vacante/{vacante}', [AsignController::class, 'index'])->middleware('
 Route::post('Vacante/Asign', [AsignController::class, 'store'])->middleware('can:empresa.all')->name('app.asignstore');
 
 Route::delete('V/{detalle_v}', [AsignController::class, 'destroy'])->middleware('can:empresa.all')->name('app.asigndelete');
+
+Route::get('/curriculum',[MailController::class, 'email'])->name('email');
+
+Route::post('/sendemail',[MailController::class, 'composeEmail'])->name('sendemail');

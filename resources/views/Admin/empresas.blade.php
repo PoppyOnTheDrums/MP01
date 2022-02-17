@@ -31,7 +31,7 @@
                 <td>{{ $empresa->industria }}</td>
                 <td>{{ $empresa->provincia }}</td>
                 <td>
-                    <a href="{{route('admin.empresainfo', $empresa)}}">Ver Egresado</a>
+                    <a href="{{route('admin.empresainfo', $empresa)}}">Ver Empresa</a>
                 </td>
             </tr>
             @endforeach
